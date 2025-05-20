@@ -42,10 +42,10 @@ const Index = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1591351223238-c8cc9a95ea9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sementes de chia" className="w-full h-48 object-cover" />
+                  
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1595854341625-f33e09b6b2f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Campos agrícolas sustentáveis" className="w-full h-48 object-cover" />
+                  
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <img src="https://images.unsplash.com/photo-1626553683558-dd8125a7a6a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logística de exportação" className="w-full h-48 object-cover" />
