@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
+
 const Hero = () => {
   return <div className="relative min-h-screen flex items-center pt-20">
       {/* Background Gradient */}
@@ -27,10 +29,10 @@ const Hero = () => {
           </div>
           <div className="relative">
             <div className="relative z-20 rounded-lg shadow-xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1598170845043-d3f0c5de9092?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Campos de cultivo de chia" className="w-full h-[500px] object-cover" />
+              <img src="/lovable-uploads/22a9f27f-0d0b-4f97-a163-5f7c42f5d316.png" alt="Carregamento de chia no porto" className="w-full h-[500px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-hecta-green/70 to-transparent opacity-60"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <p className="text-xl font-semibold">Mais de 78 portos pelo mundo </p>
+                <p className="text-xl font-semibold">Mais de 78 portos pelo mundo </p>
               </div>
             </div>
           </div>
@@ -38,4 +40,5 @@ const Hero = () => {
       </div>
     </div>;
 };
+
 export default Hero;
