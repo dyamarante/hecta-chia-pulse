@@ -7,8 +7,8 @@ import { Info } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 const PriceTicker = () => {
-  // Preço base da Chia em USD
-  const basePriceUSD = 285.72;
+  // Preço base da Chia em USD (valor atualizado para o mercado atual)
+  const basePriceUSD = 2350.00;
   
   // Usa o hook customizado para gerenciar os dados
   const { 
