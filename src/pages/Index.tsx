@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -67,8 +68,12 @@ const Index = () => {
               Pagamentos tokenizados, rastreabilidade blockchain e integração ERP 
               para total transparência e eficiência em toda a cadeia produtiva.
             </p>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-hecta-green">
-              Solicitar Demonstração
+            <Button 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-hecta-green"
+              onClick={() => window.open('https://www.hecta-pay-hub.com', '_blank')}
+            >
+              Conheça o Hecta-Pay-Hub
             </Button>
           </div>
         </section>
