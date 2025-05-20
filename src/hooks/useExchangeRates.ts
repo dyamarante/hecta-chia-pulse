@@ -152,8 +152,8 @@ export const useExchangeRates = (basePriceUSD: number) => {
     // Buscar dados iniciais
     fetchExchangeRates();
     
-    // Atualizar a cada 10 minutos (600000ms)
-    const interval = setInterval(fetchExchangeRates, 600000);
+    // Atualizar a cada 12 horas (43200000ms) em vez de a cada 10 minutos
+    const interval = setInterval(fetchExchangeRates, 43200000);
     
     return () => clearInterval(interval);
   }, []);
