@@ -43,7 +43,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <a href="/" className="flex items-center" aria-label="Hecta Chia">
-            <HectaLogo />
+            <HectaLogo className="h-10" />
           </a>
         </div>
         
@@ -53,7 +53,7 @@ const Header = () => {
             <a 
               key={item.name} 
               href={item.href} 
-              className="text-hecta-gray hover:text-hecta-lime transition-colors duration-200"
+              className="text-hecta-green hover:text-hecta-gold transition-colors duration-200 font-medium"
             >
               {item.name}
             </a>
@@ -61,7 +61,7 @@ const Header = () => {
         </nav>
         
         <div className="hidden md:block">
-          <Button className="bg-hecta-green hover:bg-hecta-lime text-white">
+          <Button className="bg-hecta-gold hover:bg-hecta-gold/80 text-white">
             Login Plataforma
           </Button>
         </div>
@@ -69,7 +69,7 @@ const Header = () => {
         {/* Mobile menu button */}
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-hecta-gray hover:text-hecta-green"
+          className="md:hidden text-hecta-green hover:text-hecta-gold"
           aria-label="Toggle menu"
         >
           <Menu size={24} />
@@ -85,13 +85,13 @@ const Header = () => {
                 <a 
                   key={item.name} 
                   href={item.href} 
-                  className="text-hecta-gray hover:text-hecta-lime py-2 transition-colors duration-200"
+                  className="text-hecta-green hover:text-hecta-gold py-2 transition-colors duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <Button className="bg-hecta-green hover:bg-hecta-lime text-white w-full">
+              <Button className="bg-hecta-gold hover:bg-hecta-gold/80 text-white w-full">
                 Login Plataforma
               </Button>
             </nav>

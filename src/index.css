@@ -16,24 +16,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 142.1 100% 28.8%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 35 48% 51%; /* Alterado para dourado */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 100 20% 31%; /* Alterado para verde */
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 35 48% 51%; /* Alterado para dourado */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 142.1 76.2% 36.3%;
+    --ring: 35 48% 51%; /* Alterado para dourado */
 
     --radius: 0.5rem;
   }
@@ -48,16 +48,16 @@
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 142.1 70.6% 45.3%;
-    --primary-foreground: 144.9 80.4% 10%;
+    --primary: 35 48% 51%; /* Alterado para dourado */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 3.7% 15.9%;
+    --secondary: 100 20% 31%; /* Alterado para verde */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 15%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 12 6.5% 15.1%;
+    --accent: 35 48% 51%; /* Alterado para dourado */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -65,42 +65,8 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 142.4 71.8% 29.2%;
+    --ring: 35 48% 51%; /* Alterado para dourado */
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans;
-  }
-
-  .ticker-container {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-  }
-
-  .ticker-wrapper {
-    display: inline-block;
-    white-space: nowrap;
-    animation: ticker 20s linear infinite;
-  }
-
-  .ticker-item {
-    display: inline-block;
-    padding: 0 1rem;
-  }
-
-  @keyframes ticker {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-}
+/* ... keep existing code (base styles) */

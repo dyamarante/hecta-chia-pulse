@@ -54,9 +54,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				hecta: {
-					green: '#009344',
+					green: '#3A633A', // Alterado para uma tonalidade de verde mais escura como na logo
 					gray: '#333333',
-					lime: '#7ED957'
+					lime: '#7ED957',
+					gold: '#C19A45' // Adicionado a cor dourada da logo
 				}
 			},
 			borderRadius: {
