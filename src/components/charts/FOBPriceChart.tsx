@@ -43,7 +43,7 @@ const FOBPriceChart = () => {
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-lg font-semibold text-hecta-gray">Preço FOB Paranaguá</h3>
-          <p className="text-xs text-muted-foreground">Fonte: Hecta-pay-hub, contratos internos</p>
+          <p className="text-xs text-muted-foreground">Fonte: Commodity-Board, Mercadero NL (Conv. 99.95%)</p>
         </div>
         <div className="flex items-center gap-2">
           <Select value={selectedYear} onValueChange={setSelectedYear}>
@@ -78,8 +78,8 @@ const FOBPriceChart = () => {
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" />
-              <YAxis yAxisId="left" orientation="left" domain={[2300, 2700]} label={{ value: 'USD/t', angle: -90, position: 'insideLeft' }} />
-              <YAxis yAxisId="right" orientation="right" domain={[5.8, 7.2]} label={{ value: 'USD/kg', angle: 90, position: 'insideRight' }} />
+              <YAxis yAxisId="left" orientation="left" domain={[2000, 3000]} label={{ value: 'USD/t', angle: -90, position: 'insideLeft' }} />
+              <YAxis yAxisId="right" orientation="right" domain={[13, 20]} label={{ value: 'USD/kg', angle: 90, position: 'insideRight' }} />
               <Tooltip
                 formatter={(value, name) => {
                   if (name === 'wholesaleUSDt') return [`${value} USD/t`, 'Atacado'];

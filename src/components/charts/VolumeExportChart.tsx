@@ -1,9 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import {
-  LineChart,
-  Line,
   AreaChart,
   Area,
   XAxis,
@@ -65,12 +62,24 @@ const VolumeExportChart = () => {
     setRange(newRange);
   };
 
+  // Calcula o total acumulado por ano
+  const getYearlyTotal = (year: number) => {
+    return volumeData
+      .filter(item => item.year === year)
+      .reduce((sum, item) => sum + item.volume, 0);
+  };
+
+  const total2023_2024 = getYearlyTotal(2023) + getYearlyTotal(2024);
+  const total2025_2026 = getYearlyTotal(2025) + getYearlyTotal(2026);
+
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-lg font-semibold text-hecta-gray">Volume Exportado (t/mês)</h3>
-          <p className="text-xs text-muted-foreground">Fonte: Ministério da Economia, MDIC</p>
+          <p className="text-xs text-muted-foreground">
+            Fonte: Dados internos • Safra 2023-2024: {total2023_2024.toLocaleString()} t • Projeção 2025-2026: {total2025_2026.toLocaleString()} t
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" onClick={exportToCSV} title="Exportar dados para CSV">
@@ -100,13 +109,16 @@ const VolumeExportChart = () => {
                   return item ? `${item.month}/${String(item.year).substring(2)}` : '';
                 }}
               />
-              <YAxis label={{ value: 'Toneladas', angle: -90, position: 'insideLeft' }} />
+              <YAxis 
+                label={{ value: 'Toneladas', angle: -90, position: 'insideLeft' }}
+                domain={[0, 10000]} // Ajustado para o novo range de volume
+              />
               <Tooltip
                 labelFormatter={(label, items) => {
                   const item = items?.[0]?.payload;
                   return item ? `${item.month}/${item.year}` : label;
                 }}
-                formatter={(value) => [`${value} t`, 'Volume']}
+                formatter={(value) => [`${value.toString()} t`, 'Volume']}
                 contentStyle={{
                   backgroundColor: '#fff',
                   border: '1px solid #f0f0f0',
