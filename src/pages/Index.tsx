@@ -48,10 +48,10 @@ const Index = () => {
                   
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1626553683558-dd8125a7a6a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logística de exportação" className="w-full h-48 object-cover" />
+                  
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1560421683-2a24a529502a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tecnologia e inovação" className="w-full h-48 object-cover" />
+                  
                 </div>
               </div>
             </div>
