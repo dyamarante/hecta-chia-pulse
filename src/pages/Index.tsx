@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import ExportChart from '@/components/ExportChart';
 import PriceComparisonChart from '@/components/PriceComparisonChart';
 import { Button } from '@/components/ui/button';
+import HectaLogo from '@/components/HectaLogo';
 
 const Index = () => {
   return (
@@ -113,7 +114,9 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Hecta Chia</h3>
+              <div className="mb-4 bg-white p-3 rounded-lg inline-block">
+                <HectaLogo className="h-8" />
+              </div>
               <p className="mb-4">
                 Referência global em produção, processamento e 
                 comercialização de chia de alta qualidade.

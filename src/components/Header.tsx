@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 import PriceTicker from './PriceTicker';
+import HectaLogo from './HectaLogo';
 
 interface NavItem {
   name: string;
@@ -41,8 +42,8 @@ const Header = () => {
       
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
-          <a href="/" className="text-hecta-green font-bold text-2xl">
-            Hecta Chia
+          <a href="/" className="flex items-center" aria-label="Hecta Chia">
+            <HectaLogo />
           </a>
         </div>
         
