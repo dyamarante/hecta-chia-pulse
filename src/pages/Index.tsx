@@ -5,14 +5,29 @@ import Hero from '@/components/Hero';
 import MarketAnalysisTabs from '@/components/MarketAnalysisTabs';
 import { Button } from '@/components/ui/button';
 import HectaLogo from '@/components/HectaLogo';
+import { useNavigate } from 'react-router-dom';
+
 const Index = () => {
+  const navigate = useNavigate();
+  
+  const scrollToMarketAnalysis = () => {
+    const marketSection = document.querySelector('.market-analysis-section');
+    if (marketSection) {
+      marketSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const navigateToContact = () => {
+    navigate('/contato');
+  };
+  
   return <div className="min-h-screen bg-white">
       <Header />
       
       <main>
         <Hero />
         
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50 market-analysis-section">
           <div className="container mx-auto px-4">
             <MarketAnalysisTabs />
             
@@ -110,7 +125,10 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-4">Contato</h3>
               <p className="mb-2">contato@hectachia.com</p>
               <p className="mb-4">+55 (41) 3000-0000</p>
-              <Button className="bg-hecta-lime hover:bg-white hover:text-hecta-green">
+              <Button 
+                className="bg-hecta-lime hover:bg-white hover:text-hecta-green"
+                onClick={navigateToContact}
+              >
                 Fale Conosco
               </Button>
             </div>
