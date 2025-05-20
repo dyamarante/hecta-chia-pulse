@@ -1,4 +1,5 @@
 
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,8 +19,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           {/* These pages will be implemented in future iterations */}
-          <Route path="/mercado" element={<NotFound />} />
-          <Route path="/operacao" element={<NotFound />} />
           <Route path="/certificacoes" element={<NotFound />} />
           <Route path="/tecnologia" element={<NotFound />} />
           <Route path="/contato" element={<NotFound />} />
@@ -32,3 +31,4 @@ const App = () => (
 );
 
 export default App;
+

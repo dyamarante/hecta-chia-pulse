@@ -11,12 +11,6 @@ const navItems: NavItem[] = [{
   name: 'Home',
   href: '/'
 }, {
-  name: 'Mercado & Preços',
-  href: '/mercado'
-}, {
-  name: 'Operação & Logística',
-  href: '/operacao'
-}, {
   name: 'Certificações',
   href: '/certificacoes'
 }, {
