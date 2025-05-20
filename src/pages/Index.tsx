@@ -25,9 +25,9 @@ const Index = () => {
       <Header />
       
       <main>
-        <Hero />
+        <Hero scrollToMarketAnalysis={scrollToMarketAnalysis} />
         
-        <section className="py-16 bg-gray-50 market-analysis-section">
+        <section className="py-16 bg-gray-50 market-analysis-section" id="market-analysis-section">
           <div className="container mx-auto px-4">
             <MarketAnalysisTabs />
             
