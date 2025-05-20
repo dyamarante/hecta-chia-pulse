@@ -111,7 +111,7 @@ const VolumeExportChart = () => {
               />
               <YAxis 
                 label={{ value: 'Toneladas', angle: -90, position: 'insideLeft' }}
-                domain={[0, 10000]} // Ajustado para o novo range de volume
+                domain={[0, 100000]} // Ajustado para o novo range de volume máximo de 100.000 toneladas
               />
               <Tooltip
                 labelFormatter={(label, items) => {
