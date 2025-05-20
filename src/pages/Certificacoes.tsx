@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { 
@@ -195,6 +197,11 @@ const markets = [
 const Certificacoes = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedMarket, setSelectedMarket] = useState("");
+  const navigate = useNavigate();
+
+  const handleRedirectToContact = () => {
+    navigate('/contato');
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -212,7 +219,7 @@ const Certificacoes = () => {
             responsabilidade social em um só lugar.
           </p>
           <Button 
-            onClick={() => setIsDialogOpen(true)}
+            onClick={handleRedirectToContact}
             className="bg-hecta-gold hover:bg-hecta-gold/90 text-white px-6 py-3 text-lg"
           >
             <FileText className="mr-2" />
@@ -257,7 +264,11 @@ const Certificacoes = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="pt-0">
-                  <Button variant="outline" className="w-full border-hecta-gold text-hecta-gold hover:bg-hecta-gold/10">
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-hecta-gold text-hecta-gold hover:bg-hecta-gold/10"
+                    onClick={handleRedirectToContact}
+                  >
                     Ver certificado
                   </Button>
                 </CardFooter>
@@ -293,7 +304,10 @@ const Certificacoes = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="bg-hecta-green hover:bg-hecta-green/90 text-white">
+              <Button 
+                className="bg-hecta-green hover:bg-hecta-green/90 text-white"
+                onClick={handleRedirectToContact}
+              >
                 <QrCode className="mr-2" />
                 Demonstração do QR Code
               </Button>
@@ -424,7 +438,7 @@ const Certificacoes = () => {
                       </div>
                       <span>USDA Organic Certificate.pdf</span>
                     </div>
-                    <Button size="sm" variant="ghost">
+                    <Button size="sm" variant="ghost" onClick={handleRedirectToContact}>
                       <FileText className="h-4 w-4 mr-2" />
                       Baixar
                     </Button>
@@ -438,7 +452,7 @@ const Certificacoes = () => {
                       </div>
                       <span>BRCGS Food Safety Report.pdf</span>
                     </div>
-                    <Button size="sm" variant="ghost">
+                    <Button size="sm" variant="ghost" onClick={handleRedirectToContact}>
                       <FileText className="h-4 w-4 mr-2" />
                       Baixar
                     </Button>
@@ -452,7 +466,7 @@ const Certificacoes = () => {
                       </div>
                       <span>SMETA 4-Pillar Summary.pdf</span>
                     </div>
-                    <Button size="sm" variant="ghost">
+                    <Button size="sm" variant="ghost" onClick={handleRedirectToContact}>
                       <FileText className="h-4 w-4 mr-2" />
                       Baixar
                     </Button>
