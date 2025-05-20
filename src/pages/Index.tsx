@@ -1,14 +1,11 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import MarketAnalysisTabs from '@/components/MarketAnalysisTabs';
 import { Button } from '@/components/ui/button';
 import HectaLogo from '@/components/HectaLogo';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Header />
       
       <main>
@@ -19,9 +16,7 @@ const Index = () => {
             <MarketAnalysisTabs />
             
             <div className="mt-12 text-center">
-              <Button className="bg-hecta-green hover:bg-hecta-lime text-white">
-                Ver Análise Detalhada
-              </Button>
+              
             </div>
           </div>
         </section>
@@ -39,47 +34,24 @@ const Index = () => {
                   inclusão social através da nossa plataforma Hecta-pay-hub.
                 </p>
                 <ul className="space-y-3">
-                  {[
-                    '60% da produção com certificação orgânica',
-                    'Mais de 4.000 pessoas envolvidas na cadeia produtiva',
-                    'Redução de 57% nas emissões de CO₂ por tonelada',
-                    'Entrega pontual em mais de 98% dos embarques'
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
+                  {['60% da produção com certificação orgânica', 'Mais de 4.000 pessoas envolvidas na cadeia produtiva', 'Redução de 57% nas emissões de CO₂ por tonelada', 'Entrega pontual em mais de 98% dos embarques'].map((item, index) => <li key={index} className="flex items-start">
                       <span className="text-hecta-green mr-2">✓</span>
                       <span>{item}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1591351223238-c8cc9a95ea9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                    alt="Sementes de chia" 
-                    className="w-full h-48 object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1591351223238-c8cc9a95ea9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sementes de chia" className="w-full h-48 object-cover" />
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1595854341625-f33e09b6b2f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                    alt="Campos agrícolas sustentáveis" 
-                    className="w-full h-48 object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1595854341625-f33e09b6b2f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Campos agrícolas sustentáveis" className="w-full h-48 object-cover" />
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1626553683558-dd8125a7a6a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                    alt="Logística de exportação" 
-                    className="w-full h-48 object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1626553683558-dd8125a7a6a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logística de exportação" className="w-full h-48 object-cover" />
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560421683-2a24a529502a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                    alt="Tecnologia e inovação" 
-                    className="w-full h-48 object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1560421683-2a24a529502a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tecnologia e inovação" className="w-full h-48 object-cover" />
                 </div>
               </div>
             </div>
@@ -143,8 +115,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
