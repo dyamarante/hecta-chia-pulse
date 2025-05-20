@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,16 +10,24 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Header from '@/components/Header';
 import HectaLogo from '@/components/HectaLogo';
-
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Nome deve ter pelo menos 2 caracteres" }),
-  email: z.string().email({ message: "Email inválido" }),
-  subject: z.string().min(5, { message: "Assunto deve ter pelo menos 5 caracteres" }),
-  message: z.string().min(10, { message: "Mensagem deve ter pelo menos 10 caracteres" })
+  name: z.string().min(2, {
+    message: "Nome deve ter pelo menos 2 caracteres"
+  }),
+  email: z.string().email({
+    message: "Email inválido"
+  }),
+  subject: z.string().min(5, {
+    message: "Assunto deve ter pelo menos 5 caracteres"
+  }),
+  message: z.string().min(10, {
+    message: "Mensagem deve ter pelo menos 10 caracteres"
+  })
 });
-
 const Contato = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,9 +35,8 @@ const Contato = () => {
       email: "",
       subject: "",
       message: ""
-    },
+    }
   });
-
   function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real application, you would send this data to a server
     console.log(values);
@@ -40,9 +46,7 @@ const Contato = () => {
     });
     form.reset();
   }
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Header />
       
       <main className="pt-36 pb-16">
@@ -59,71 +63,48 @@ const Contato = () => {
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
+                        <FormField control={form.control} name="name" render={({
+                        field
+                      }) => <FormItem>
                               <FormLabel>Nome</FormLabel>
                               <FormControl>
                                 <Input placeholder="Seu nome" {...field} />
                               </FormControl>
                               <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                            </FormItem>} />
                         
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
+                        <FormField control={form.control} name="email" render={({
+                        field
+                      }) => <FormItem>
                               <FormLabel>Email</FormLabel>
                               <FormControl>
                                 <Input placeholder="seu@email.com" {...field} />
                               </FormControl>
                               <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                            </FormItem>} />
                       </div>
                       
-                      <FormField
-                        control={form.control}
-                        name="subject"
-                        render={({ field }) => (
-                          <FormItem>
+                      <FormField control={form.control} name="subject" render={({
+                      field
+                    }) => <FormItem>
                             <FormLabel>Assunto</FormLabel>
                             <FormControl>
                               <Input placeholder="Assunto da mensagem" {...field} />
                             </FormControl>
                             <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                          </FormItem>} />
                       
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
+                      <FormField control={form.control} name="message" render={({
+                      field
+                    }) => <FormItem>
                             <FormLabel>Mensagem</FormLabel>
                             <FormControl>
-                              <Textarea 
-                                placeholder="Digite sua mensagem..." 
-                                className="min-h-[150px]" 
-                                {...field} 
-                              />
+                              <Textarea placeholder="Digite sua mensagem..." className="min-h-[150px]" {...field} />
                             </FormControl>
                             <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                          </FormItem>} />
                       
-                      <Button 
-                        type="submit" 
-                        className="w-full bg-hecta-green hover:bg-hecta-green/90 text-white"
-                      >
+                      <Button type="submit" className="w-full bg-hecta-green hover:bg-hecta-green/90 text-white">
                         <MessageSquare className="mr-2 h-4 w-4" />
                         Enviar Mensagem
                       </Button>
@@ -149,21 +130,9 @@ const Contato = () => {
                       </div>
                     </li>
                     
-                    <li className="flex items-start">
-                      <Phone className="text-hecta-green mr-3 h-5 w-5 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold mb-1">Telefone</p>
-                        <p className="text-gray-600">+55 (41) 3000-0000</p>
-                      </div>
-                    </li>
                     
-                    <li className="flex items-start">
-                      <Mail className="text-hecta-green mr-3 h-5 w-5 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold mb-1">Email</p>
-                        <p className="text-gray-600">contato@hectachia.com</p>
-                      </div>
-                    </li>
+                    
+                    
                   </ul>
                 </div>
                 
@@ -189,16 +158,9 @@ const Contato = () => {
             
             <div className="mt-12">
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.115928019772!2d-49.267941024900195!3d-25.41644377563634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce46e5dd2bf2b%3A0xdea9ec5499774355!2sAv.%20C%C3%A2ndido%20de%20Abreu%2C%20470%20-%20Centro%20C%C3%ADvico%2C%20Curitiba%20-%20PR%2C%2080530-000!5e0!3m2!1sen!2sbr!4v1716188792558!5m2!1sen!2sbr"
-                  width="100%" 
-                  height="450" 
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  title="Mapa de Localização"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.115928019772!2d-49.267941024900195!3d-25.41644377563634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce46e5dd2bf2b%3A0xdea9ec5499774355!2sAv.%20C%C3%A2ndido%20de%20Abreu%2C%20470%20-%20Centro%20C%C3%ADvico%2C%20Curitiba%20-%20PR%2C%2080530-000!5e0!3m2!1sen!2sbr!4v1716188792558!5m2!1sen!2sbr" width="100%" height="450" style={{
+                border: 0
+              }} allowFullScreen loading="lazy" title="Mapa de Localização" referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
@@ -246,8 +208,6 @@ const Contato = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Contato;
