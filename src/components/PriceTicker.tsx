@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { toast } from '@/components/ui/sonner';
 
@@ -16,21 +15,15 @@ interface ExchangeRate {
   change: number;
 }
 
-interface ExchangeRateApiResponse {
-  success: boolean;
-  timestamp: number;
+// Updated interface for CurrencyFreaks API response
+interface CurrencyFreaksResponse {
   base: string;
   date: string;
-  rates?: {
-    BRL?: number;
-    CNY?: number;
-    AED?: number;
-    EUR?: number;
-  };
-  error?: {
-    code: number;
-    type: string;
-    info: string;
+  rates: {
+    BRL?: string;
+    CNY?: string;
+    AED?: string;
+    EUR?: string;
   };
 }
 
@@ -76,16 +69,18 @@ const PriceTicker = () => {
     try {
       setLoading(true);
       
-      // Utilizando Open Exchange Rates como alternativa que aceita CORS
-      const response = await fetch('https://open.er-api.com/v6/latest/USD');
+      // Utilizando CurrencyFreaks API com a chave fornecida
+      const response = await fetch(
+        'https://api.currencyfreaks.com/latest?apikey=583477b244014fca8bf97efe5b39b3c8&symbols=BRL,CNY,AED,EUR'
+      );
       
       if (!response.ok) {
         throw new Error('Falha ao obter taxas de câmbio');
       }
       
-      const data: ExchangeRateApiResponse = await response.json();
+      const data: CurrencyFreaksResponse = await response.json();
       
-      if (!data.success || !data.rates) {
+      if (!data.rates) {
         throw new Error('Dados de taxa de câmbio inválidos');
       }
       
@@ -93,7 +88,8 @@ const PriceTicker = () => {
       const nowBRT = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
       const hour = new Date(nowBRT).getHours();
       
-      let brlRate = data.rates.BRL || 5.08;
+      // Converter as taxas de string para número
+      let brlRate = data.rates.BRL ? parseFloat(data.rates.BRL) : 5.08;
       let brlSource: 'API' | 'PTAX' = 'API';
       
       if (hour >= 15) {
@@ -114,16 +110,16 @@ const PriceTicker = () => {
             }
           }
         } catch (ptaxError) {
-          console.error('Erro ao obter taxa PTAX, usando taxa da API:', ptaxError);
+          console.error('Erro ao obter taxa PTAX, usando taxa da API CurrencyFreaks:', ptaxError);
         }
       }
       
       // Calculando variações com base na última atualização
       const newRates = {
         BRL: brlRate,
-        CNY: data.rates.CNY || 6.47,
-        AED: data.rates.AED || 3.67,
-        EUR: data.rates.EUR || 0.92,
+        CNY: data.rates.CNY ? parseFloat(data.rates.CNY) : 6.47,
+        AED: data.rates.AED ? parseFloat(data.rates.AED) : 3.67,
+        EUR: data.rates.EUR ? parseFloat(data.rates.EUR) : 0.92,
       };
       
       // Calcular variação percentual para cada taxa
@@ -183,7 +179,7 @@ const PriceTicker = () => {
           description: `${new Date().toLocaleString('pt-BR')}`
         });
       } else {
-        toast.info('Taxas de câmbio atualizadas', {
+        toast.info('Taxas de câmbio atualizadas via CurrencyFreaks', {
           description: `${new Date().toLocaleString('pt-BR')}`
         });
       }
