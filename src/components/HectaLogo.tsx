@@ -10,27 +10,18 @@ const HectaLogo: React.FC<HectaLogoProps> = ({
 }) => {
   return (
     <div className={className}>
-      <svg 
-        width="180" 
-        height="60" 
-        viewBox="0 0 180 60" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid meet"
-        style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
-      >
-        {/* Semente circular (contorno dourado) */}
-        <circle cx="35" cy="32" r="22" stroke="#C19A45" strokeWidth="2" fill="white" />
-        
-        {/* Folha estilizada (verde) dentro da semente */}
-        <path d="M30 25C35 25 37 30 35 35C33 40 28 45 25 40C22 35 25 30 30 25Z" fill="#3A633A" />
-        
-        {/* Texto HECTA (verde) */}
-        <text x="64" y="30" fontSize="18" fontWeight="bold" fill="#3A633A">HECTA</text>
-        
-        {/* Texto Chia (dourado) */}
-        <text x="64" y="50" fontSize="22" fontWeight="bold" fill="#C19A45">Chia</text>
-      </svg>
+      <img 
+        src="/lovable-uploads/663f7222-29a5-4b6d-9fee-60359ce519ce.png" 
+        alt="Hecta Chia Logo" 
+        style={{ 
+          display: 'block', 
+          width: 'auto', 
+          height: 'auto', 
+          maxWidth: '100%', 
+          maxHeight: '100%',
+          objectFit: 'contain'
+        }}
+      />
     </div>
   );
 };
