@@ -15,67 +15,16 @@ import {
 } from 'recharts';
 import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-// Dados simulados para os volumes de exportação
-const data2023 = [
-  { month: 'Jan', volume: 1200 },
-  { month: 'Fev', volume: 1350 },
-  { month: 'Mar', volume: 1100 },
-  { month: 'Abr', volume: 1420 },
-  { month: 'Mai', volume: 1500 },
-  { month: 'Jun', volume: 1380 },
-  { month: 'Jul', volume: 1600 },
-  { month: 'Ago', volume: 1650 },
-  { month: 'Set', volume: 1550 },
-  { month: 'Out', volume: 1700 },
-  { month: 'Nov', volume: 1800 },
-  { month: 'Dez', volume: 1850 },
-];
-
-const data2024 = [
-  { month: 'Jan', volume: 1900 },
-  { month: 'Fev', volume: 2050 },
-  { month: 'Mar', volume: 1950 },
-  { month: 'Abr', volume: 2100 },
-  { month: 'Mai', volume: 2200 },
-  { month: 'Jun', volume: 2150 },
-  { month: 'Jul', volume: 2300 },
-  { month: 'Ago', volume: 2350 },
-  { month: 'Set', volume: 2250 },
-  { month: 'Out', volume: 2400 },
-  { month: 'Nov', volume: 2500 },
-  { month: 'Dez', volume: 2550 },
-];
-
-const data2025 = [
-  { month: 'Jan', volume: 2600 },
-  { month: 'Fev', volume: 2750 },
-  { month: 'Mar', volume: 2650 },
-  { month: 'Abr', volume: 2800 },
-  { month: 'Mai', volume: 2900 },
-  { month: 'Jun', volume: 2850 },
-  { month: 'Jul', volume: 3000 },
-  { month: 'Ago', volume: 3050 },
-  { month: 'Set', volume: 2950 },
-  { month: 'Out', volume: 3100 },
-  { month: 'Nov', volume: 3200 },
-  { month: 'Dez', volume: 3250 },
-];
-
-const allData = [...data2023, ...data2024, ...data2025].map((item, index) => ({
-  ...item,
-  date: `2023-01-01`.replace('01', String(Math.floor(index / 12) + 1)).replace('2023', String(2023 + Math.floor(index / 12))),
-  year: 2023 + Math.floor(index / 12)
-}));
+import { useChartData } from '@/contexts/ChartDataContext';
 
 const VolumeExportChart = () => {
+  const { volumeData, isLoading } = useChartData();
   const [range, setRange] = useState([0, 35]); // 0-35 representa índices para os 36 meses (3 anos)
-  const [isLoading, setIsLoading] = useState(false);
   
-  const filteredData = allData.slice(range[0], range[1] + 1);
+  const filteredData = volumeData.slice(range[0], range[1] + 1);
   
   const formatLabel = (value: number) => {
-    const item = allData[value];
+    const item = volumeData[value];
     return item ? `${item.month}/${item.year}` : '';
   };
 

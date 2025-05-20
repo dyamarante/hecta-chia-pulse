@@ -78,8 +78,8 @@ const FOBPriceChart = () => {
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" />
-              <YAxis yAxisId="left" orientation="left" domain={[260, 320]} label={{ value: 'USD/t', angle: -90, position: 'insideLeft' }} />
-              <YAxis yAxisId="right" orientation="right" domain={[0.6, 0.9]} label={{ value: 'USD/kg', angle: 90, position: 'insideRight' }} />
+              <YAxis yAxisId="left" orientation="left" domain={[2300, 2700]} label={{ value: 'USD/t', angle: -90, position: 'insideLeft' }} />
+              <YAxis yAxisId="right" orientation="right" domain={[5.8, 7.2]} label={{ value: 'USD/kg', angle: 90, position: 'insideRight' }} />
               <Tooltip
                 formatter={(value, name) => {
                   if (name === 'wholesaleUSDt') return [`${value} USD/t`, 'Atacado'];

@@ -49,6 +49,23 @@ const CIFPriceChart = () => {
     document.body.removeChild(link);
   };
 
+  // Define escala dinâmica com base no destino
+  const getYAxisDomains = () => {
+    if (selectedDestination === 'qingdao') {
+      return {
+        left: [2400, 2800],
+        right: [4.0, 6.0]
+      };
+    } else {
+      return {
+        left: [2350, 2750],
+        right: [13.0, 17.0]
+      };
+    }
+  };
+  
+  const domains = getYAxisDomains();
+
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
@@ -99,8 +116,8 @@ const CIFPriceChart = () => {
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" />
-              <YAxis yAxisId="left" orientation="left" domain={[300, 370]} label={{ value: 'USD/t', angle: -90, position: 'insideLeft' }} />
-              <YAxis yAxisId="right" orientation="right" domain={[0.8, 1.0]} label={{ value: 'USD/kg', angle: 90, position: 'insideRight' }} />
+              <YAxis yAxisId="left" orientation="left" domain={domains.left} label={{ value: 'USD/t', angle: -90, position: 'insideLeft' }} />
+              <YAxis yAxisId="right" orientation="right" domain={domains.right} label={{ value: 'USD/kg', angle: 90, position: 'insideRight' }} />
               <Tooltip
                 formatter={(value, name) => {
                   if (name === 'wholesaleUSDt') return [`${value} USD/t`, 'Atacado'];
