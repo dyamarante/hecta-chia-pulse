@@ -43,7 +43,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <a href="/" className="flex items-center" aria-label="Hecta Chia">
-            <HectaLogo className="h-10" />
+            <HectaLogo className="w-auto h-10" />
           </a>
         </div>
         
