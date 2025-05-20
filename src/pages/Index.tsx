@@ -11,7 +11,7 @@ const Index = () => {
   const navigate = useNavigate();
   
   const scrollToMarketAnalysis = () => {
-    const marketSection = document.querySelector('.market-analysis-section');
+    const marketSection = document.querySelector('#market-analysis-section');
     if (marketSection) {
       marketSection.scrollIntoView({ behavior: 'smooth' });
     }

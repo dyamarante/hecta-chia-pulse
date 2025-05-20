@@ -18,7 +18,7 @@ const HeroButtons: React.FC<HeroButtonsProps> = ({ scrollToMarketAnalysis }) => 
     <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
       <Button 
         className="bg-hecta-green hover:bg-hecta-green/90 text-white min-w-[180px]"
-        onClick={() => scrollToMarketAnalysis()}
+        onClick={scrollToMarketAnalysis}
       >
         Ver Panorama de Mercado
       </Button>

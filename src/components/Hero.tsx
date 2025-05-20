@@ -1,8 +1,13 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import HeroButtons from './HeroButtons';
 
-const Hero = () => {
+interface HeroProps {
+  scrollToMarketAnalysis: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ scrollToMarketAnalysis }) => {
   return <div className="relative min-h-screen flex items-center pt-20">
       {/* Background Gradient - atualizado para usar tons de dourado e verde */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f8f3e6] to-white z-0" aria-hidden="true" />
@@ -18,13 +23,8 @@ const Hero = () => {
               Conectamos produtores aos mercados internacionais com transparência, 
               tecnologia e compromisso com sustentabilidade.
             </p>
-            <div className="pt-4 flex flex-wrap gap-4">
-              <Button className="bg-hecta-gold hover:bg-hecta-gold/80 text-white text-lg px-8 py-6">
-                Ver Panorama de Mercado
-              </Button>
-              <Button variant="outline" className="border-hecta-green text-hecta-green hover:bg-hecta-green hover:text-white text-lg px-8 py-6">
-                Fale Conosco
-              </Button>
+            <div className="pt-4">
+              <HeroButtons scrollToMarketAnalysis={scrollToMarketAnalysis} />
             </div>
           </div>
           <div className="relative">
