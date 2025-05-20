@@ -1,0 +1,55 @@
+
+import React from 'react';
+import { Button } from '@/components/ui/button';
+
+const Hero = () => {
+  return (
+    <div className="relative min-h-screen flex items-center pt-20">
+      {/* Background Gradient */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-b from-white via-green-50 to-white z-0"
+        aria-hidden="true"
+      />
+      
+      <div className="container mx-auto px-4 z-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-hecta-gray">
+              <span className="block">Referência Global em</span>
+              <span className="text-hecta-green">Chia de Qualidade</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-700 max-w-lg">
+              Conectamos produtores aos mercados internacionais com transparência, 
+              tecnologia e compromisso com sustentabilidade.
+            </p>
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Button className="bg-hecta-green hover:bg-hecta-lime text-white text-lg px-8 py-6">
+                Ver Panorama de Mercado
+              </Button>
+              <Button variant="outline" className="border-hecta-green text-hecta-green hover:bg-hecta-green hover:text-white text-lg px-8 py-6">
+                Fale Conosco
+              </Button>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="relative z-20 rounded-lg shadow-xl overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1598170845043-d3f0c5de9092?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                alt="Campos de cultivo de chia" 
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-hecta-green/70 to-transparent opacity-60"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <p className="text-xl font-semibold">
+                  Mais de 200 agricultores parceiros em toda América Latina
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
