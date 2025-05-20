@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
@@ -51,7 +50,7 @@ const certifications = [
     ],
     validity: 'Certificador ECOCERT — validade jun/2025',
     auditor: 'ECOCERT',
-    image: 'https://ec.europa.eu/agriculture/organic/sites/default/files/img/logo/organic-farming_large.png'
+    image: '/lovable-uploads/9e1fcabb-d8c0-4c8e-82cc-9dd2cf53cce0.png'
   },
   {
     id: 'cor',
@@ -63,7 +62,7 @@ const certifications = [
     ],
     validity: 'Certificado #COR-21-247, válido fev/2026',
     auditor: 'COR',
-    image: 'https://www.inspection.gc.ca/DAM/DAM-aboutcfia-sujetacia/STAGING/images-images/org_logo_regim_1341863404113_eng.jpg'
+    image: '/lovable-uploads/88008385-0722-45be-b132-1c9c65bbcc1d.png'
   },
   {
     id: 'jas',
@@ -75,7 +74,7 @@ const certifications = [
     ],
     validity: 'Auditor MAFF-acreditado — validade mar/2026',
     auditor: 'MAFF',
-    image: 'https://www.maff.go.jp/e/policies/standard/jas/img/jas_organic_en.png'
+    image: '/lovable-uploads/3c1d4c52-aafb-489e-a14d-0e8237afb1c0.png'
   },
   {
     id: 'brcgs',
@@ -87,7 +86,7 @@ const certifications = [
     ],
     validity: 'Emitido por SGS — resultado AA+ (auditoria surpresa).',
     auditor: 'Complete Food Safety Ltd',
-    image: 'https://www.brcgs.com/media/1366/brcgs-food-safety-logo_rgb.jpg'
+    image: '/lovable-uploads/9679d345-1d34-4876-b36b-691161019da6.png'
   },
   {
     id: 'fda',
@@ -98,7 +97,7 @@ const certifications = [
     ],
     validity: 'FFR #18521423952 renovado 2024/2026',
     auditor: 'FDA',
-    image: 'https://www.fda.gov/files/FDA-Logo_Full-Color_Horizontal-PNG.png'
+    image: '/lovable-uploads/f5b83a1e-17e8-44ad-9488-ec77c92f3fde.png'
   },
   {
     id: 'kosher',
@@ -110,7 +109,7 @@ const certifications = [
     ],
     validity: 'Rabbi audit trimestral',
     auditor: 'OU Kosher Certification',
-    image: 'https://oukosher.org/wp-content/uploads/2012/09/ou-logo.png'
+    image: '/lovable-uploads/d4acb6d3-1c37-4f94-b53c-e45e68148a24.png'
   },
   {
     id: 'halal',
@@ -122,7 +121,7 @@ const certifications = [
     ],
     validity: 'Certifier: AHF (validade out/2025)',
     auditor: 'American Halal Foundation',
-    image: 'https://i0.wp.com/www.americanhalalfoundation.org/wp-content/uploads/2019/08/cropped-AHF-Logo.png'
+    image: '/lovable-uploads/d92916bd-d8dc-4369-abc0-d159fb0b9c22.png'
   },
   {
     id: 'nongmo',
@@ -134,7 +133,7 @@ const certifications = [
     ],
     validity: 'ID #NGPV-021-CHI-2024 (renov. anual)',
     auditor: 'nongmoproject.org',
-    image: 'https://www.nongmoproject.org/wp-content/uploads/2021/08/NG-project-verified.jpg'
+    image: '/lovable-uploads/cb524aef-f8ac-4895-b9e7-bafc7c890079.png'
   },
   {
     id: 'smeta',
@@ -146,7 +145,7 @@ const certifications = [
     ],
     validity: 'Auditor NSF-Sedex; renovado jan/2025',
     auditor: 'Sedex',
-    image: 'https://www.sedex.com/wp-content/uploads/2019/04/SMETA-Logo.jpg'
+    image: '/lovable-uploads/0bb62fb2-d29a-4a46-922c-7f83c8aae5dc.png'
   },
   {
     id: 'gluten',
@@ -158,7 +157,7 @@ const certifications = [
     ],
     validity: 'Batch-based; disponível por QR',
     auditor: 'Interno',
-    image: 'https://cdn-icons-png.flaticon.com/512/2153/2153786.png'
+    image: '/lovable-uploads/663fe5e3-10a8-46e0-a93d-0c592f1a08da.png'
   }
 ];
 
@@ -236,7 +235,7 @@ const Certificacoes = () => {
                   <img 
                     src={cert.image} 
                     alt={`${cert.name} logo`} 
-                    className="max-h-16 max-w-full"
+                    className="max-h-16 max-w-full object-contain"
                   />
                 </div>
                 <CardHeader className="pb-2">
