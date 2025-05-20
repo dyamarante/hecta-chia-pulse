@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   LineChart,
@@ -64,16 +64,17 @@ const data2025 = [
 
 const allData = [...data2023, ...data2024, ...data2025].map((item, index) => ({
   ...item,
-  date: `2023-01-01`.replace('01', Math.floor(index / 12) + 1).replace('2023', 2023 + Math.floor(index / 12)),
+  date: `2023-01-01`.replace('01', String(Math.floor(index / 12) + 1)).replace('2023', String(2023 + Math.floor(index / 12))),
   year: 2023 + Math.floor(index / 12)
 }));
 
 const VolumeExportChart = () => {
   const [range, setRange] = useState([0, 35]); // 0-35 representa índices para os 36 meses (3 anos)
+  const [isLoading, setIsLoading] = useState(false);
   
   const filteredData = allData.slice(range[0], range[1] + 1);
   
-  const formatLabel = (value) => {
+  const formatLabel = (value: number) => {
     const item = allData[value];
     return item ? `${item.month}/${item.year}` : '';
   };
@@ -96,9 +97,9 @@ const VolumeExportChart = () => {
     document.body.removeChild(link);
   };
 
-  const handleRangeChange = (e) => {
+  const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value, 10);
-    const index = parseInt(e.target.getAttribute('data-index'), 10);
+    const index = parseInt(e.target.getAttribute('data-index') || '0', 10);
     
     let newRange = [...range];
     newRange[index] = value;
@@ -129,37 +130,46 @@ const VolumeExportChart = () => {
         </div>
       </div>
 
-      <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart
-            data={filteredData}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="month" 
-              tickFormatter={(tick, index) => {
-                const item = filteredData[index];
-                return item ? `${item.month}/${String(item.year).substring(2)}` : '';
-              }}
-            />
-            <YAxis label={{ value: 'Toneladas', angle: -90, position: 'insideLeft' }} />
-            <Tooltip
-              labelFormatter={(label, items) => {
-                const item = items?.[0]?.payload;
-                return item ? `${item.month}/${item.year}` : label;
-              }}
-              formatter={(value) => [`${value} t`, 'Volume']}
-              contentStyle={{
-                backgroundColor: '#fff',
-                border: '1px solid #f0f0f0',
-                borderRadius: '4px',
-              }}
-            />
-            <Legend />
-            <Area type="monotone" dataKey="volume" stroke="#009344" fill="#009344" fillOpacity={0.3} name="Volume Exportado" />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
+      {isLoading ? (
+        <div className="h-80 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-hecta-green mx-auto"></div>
+            <p className="mt-4 text-hecta-gray">Carregando dados...</p>
+          </div>
+        </div>
+      ) : (
+        <div className="h-80">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart
+              data={filteredData}
+              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <XAxis dataKey="month" 
+                tickFormatter={(tick, index) => {
+                  const item = filteredData[index];
+                  return item ? `${item.month}/${String(item.year).substring(2)}` : '';
+                }}
+              />
+              <YAxis label={{ value: 'Toneladas', angle: -90, position: 'insideLeft' }} />
+              <Tooltip
+                labelFormatter={(label, items) => {
+                  const item = items?.[0]?.payload;
+                  return item ? `${item.month}/${item.year}` : label;
+                }}
+                formatter={(value) => [`${value} t`, 'Volume']}
+                contentStyle={{
+                  backgroundColor: '#fff',
+                  border: '1px solid #f0f0f0',
+                  borderRadius: '4px',
+                }}
+              />
+              <Legend />
+              <Area type="monotone" dataKey="volume" stroke="#009344" fill="#009344" fillOpacity={0.3} name="Volume Exportado" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       <div className="flex flex-col space-y-2">
         <div className="flex justify-between">
