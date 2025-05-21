@@ -11,49 +11,32 @@ interface TimelineEvent {
 const ComplianceTimeline: React.FC = () => {
   const { t, i18n } = useTranslation(['certifications']);
 
+  const getLocalizedEvent = (key: string): string => {
+    switch(key) {
+      case 'usda_organic':
+        return i18n.language === 'zh' ? 'USDA有机认证' : t('usda_organic');
+      case 'eu_organic_cor':
+        return i18n.language === 'zh' ? '欧盟有机认证 + COR' : 'EU Organic + COR';
+      case 'brcgs_upgrade':
+        return i18n.language === 'zh' ? 'BRCGS A → 2023年升级至AA+' : 'BRCGS A → upgrade AA+ in 2023';
+      case 'kosher_ou':
+        return i18n.language === 'zh' ? '犹太洁食OU' : 'Kosher OU';
+      case 'halal_smeta':
+        return i18n.language === 'zh' ? '清真GCC + SMETA 4P' : 'Halal GCC + SMETA 4P';
+      case 'non_gmo':
+        return i18n.language === 'zh' ? '非转基因项目验证' : 'Non-GMO Project Verified';
+      default:
+        return key;
+    }
+  };
+
   const timelineEvents: TimelineEvent[] = [
-    { 
-      year: 2018, 
-      event: i18n.language === 'pt' ? 'USDA Organic' :
-             i18n.language === 'en' ? 'USDA Organic' :
-             i18n.language === 'zh' ? 'USDA有机认证' :
-             'USDA العضوي'
-    },
-    { 
-      year: 2019, 
-      event: i18n.language === 'pt' ? 'EU Organic + COR' :
-             i18n.language === 'en' ? 'EU Organic + COR' :
-             i18n.language === 'zh' ? '欧盟有机认证 + COR' :
-             'الاتحاد الأوروبي العضوي + COR'
-    },
-    { 
-      year: 2020, 
-      event: i18n.language === 'pt' ? 'BRCGS A → upgrade AA+ em 2023' :
-             i18n.language === 'en' ? 'BRCGS A → upgraded to AA+ in 2023' :
-             i18n.language === 'zh' ? 'BRCGS A → 2023年升级至AA+' :
-             'BRCGS A → تمت الترقية إلى AA+ في 2023'
-    },
-    { 
-      year: 2021, 
-      event: i18n.language === 'pt' ? 'Kosher OU' :
-             i18n.language === 'en' ? 'Kosher OU' :
-             i18n.language === 'zh' ? '犹太洁食OU' :
-             'كوشر OU'
-    },
-    { 
-      year: 2022, 
-      event: i18n.language === 'pt' ? 'Halal GCC + SMETA 4P' :
-             i18n.language === 'en' ? 'Halal GCC + SMETA 4P' :
-             i18n.language === 'zh' ? '清真GCC + SMETA 4P' :
-             'حلال GCC + SMETA 4P'
-    },
-    { 
-      year: 2023, 
-      event: i18n.language === 'pt' ? 'Non-GMO Project Verified' :
-             i18n.language === 'en' ? 'Non-GMO Project Verified' :
-             i18n.language === 'zh' ? '非转基因项目验证' :
-             'مشروع خالٍ من المواد المعدلة وراثيًا تم التحقق منه'
-    },
+    { year: 2018, event: getLocalizedEvent('usda_organic') },
+    { year: 2019, event: getLocalizedEvent('eu_organic_cor') },
+    { year: 2020, event: getLocalizedEvent('brcgs_upgrade') },
+    { year: 2021, event: getLocalizedEvent('kosher_ou') },
+    { year: 2022, event: getLocalizedEvent('halal_smeta') },
+    { year: 2023, event: getLocalizedEvent('non_gmo') },
   ];
 
   return (
