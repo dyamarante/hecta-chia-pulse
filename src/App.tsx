@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,7 +19,8 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {/* Add key={i18n.language} to force re-rendering when language changes */}
+        {/* Keep key={i18n.language} to force re-rendering when language changes */}
+        {/* This is a simpler approach than managing component lifecycle manually */}
         <BrowserRouter key={i18n.language}>
           <Routes>
             <Route path="/" element={<Index />} />

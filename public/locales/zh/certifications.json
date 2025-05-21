@@ -81,5 +81,15 @@
   "elisa_analyses": "ELISA分析 <10 ppm（麸质）",
   "blockchain_reports": "Hecta区块链上的报告",
   "batch_based": "基于批次；通过二维码可获取",
-  "internal": "内部"
+  "internal": "内部",
+  "faq.certificate_dates.question": "为什么某些证书没有显示今年的检查日期？",
+  "faq.certificate_dates.answer": "我们仅发布不暴露敏感数据的版本；法律有效性在区块链上。",
+  "faq.usda_seal.question": "我可以在我的品牌包装上使用USDA标志吗？",
+  "faq.usda_seal.answer": "是的，只要您不在工厂中更改产品的有机状态，并引用我们的NOP证书。",
+  "faq.second_party_audits.question": "Hecta是否为第二方审核提供支持？",
+  "faq.second_party_audits.answer": "我们提供虚拟会议室和报告访问权限；现场审核员可在30天内安排。",
+  "markets.usa": "美国",
+  "markets.eu": "欧盟",
+  "markets.asia": "亚洲",
+  "markets.middle_east": "中东"
 }

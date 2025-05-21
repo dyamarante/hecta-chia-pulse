@@ -55,8 +55,8 @@ export const changeLanguage = (lng: string) => {
       document.body.classList.remove('rtl');
     }
     
-    // Force reload the current page to ensure all components use the new language
-    window.location.reload();
+    // We're removing the force reload to let React and i18next handle the re-rendering
+    // window.location.reload(); <- Removed this line
   });
 };
 

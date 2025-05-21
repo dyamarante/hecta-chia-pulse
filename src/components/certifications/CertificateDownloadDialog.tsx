@@ -25,43 +25,25 @@ interface CertificateDownloadDialogProps {
   onDownload: () => void;
 }
 
+interface Market {
+  value: string;
+  labelKey: string;
+}
+
 const CertificateDownloadDialog: React.FC<CertificateDownloadDialogProps> = ({
   isOpen,
   onOpenChange,
   onDownload
 }) => {
   const [selectedMarket, setSelectedMarket] = React.useState("");
-  const { t, i18n } = useTranslation(['certifications']);
+  const { t } = useTranslation(['certifications']);
 
-  const markets = [
-    { 
-      value: "eua", 
-      label: i18n.language === 'pt' ? "EUA" :
-             i18n.language === 'en' ? "USA" :
-             i18n.language === 'zh' ? "美国" :
-             "الولايات المتحدة"
-    },
-    { 
-      value: "ue", 
-      label: i18n.language === 'pt' ? "União Europeia" :
-             i18n.language === 'en' ? "European Union" :
-             i18n.language === 'zh' ? "欧盟" :
-             "الاتحاد الأوروبي"
-    },
-    { 
-      value: "asia", 
-      label: i18n.language === 'pt' ? "Ásia" :
-             i18n.language === 'en' ? "Asia" :
-             i18n.language === 'zh' ? "亚洲" :
-             "آسيا"
-    },
-    { 
-      value: "orientemedio", 
-      label: i18n.language === 'pt' ? "Oriente Médio" :
-             i18n.language === 'en' ? "Middle East" :
-             i18n.language === 'zh' ? "中东" :
-             "الشرق الأوسط"
-    }
+  // Using a consistent approach with translation keys
+  const markets: Market[] = [
+    { value: "eua", labelKey: 'markets.usa' },
+    { value: "ue", labelKey: 'markets.eu' },
+    { value: "asia", labelKey: 'markets.asia' },
+    { value: "orientemedio", labelKey: 'markets.middle_east' }
   ];
 
   return (
@@ -85,7 +67,7 @@ const CertificateDownloadDialog: React.FC<CertificateDownloadDialogProps> = ({
               <SelectContent>
                 {markets.map((market) => (
                   <SelectItem key={market.value} value={market.value}>
-                    {market.label}
+                    {t(market.labelKey)}
                   </SelectItem>
                 ))}
               </SelectContent>
