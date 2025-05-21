@@ -1,0 +1,20 @@
+
+{
+  "home": "الرئيسية",
+  "certifications": "الشهادات",
+  "contact": "اتصل بنا",
+  "login_platform": "تسجيل الدخول للمنصة",
+  "select_language": "اختر اللغة",
+  "company_name": "هكتا شيا العالمية",
+  "company_description": "نحن متواجدون في 5 دول، نقدم بذور الشيا عالية الجودة مع شهادات دولية.",
+  "learn_more": "اعرف المزيد",
+  "footer_description": "المرجع العالمي في إنتاج ومعالجة وتسويق بذور الشيا عالية الجودة.",
+  "global_offices": "المكاتب العالمية",
+  "office_curitiba": "كوريتيبا، البرازيل (المقر الرئيسي)",
+  "office_saopaulo": "ساو باولو، البرازيل",
+  "office_asuncion": "أسونسيون، باراغواي",
+  "office_qingdao": "تشينغداو، الصين",
+  "office_newyork": "نيويورك، الولايات المتحدة",
+  "contact_us": "اتصل بنا",
+  "copyright": "© {{year}} هكتا شيا. جميع الحقوق محفوظة."
+}

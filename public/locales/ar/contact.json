@@ -1,0 +1,26 @@
+
+{
+  "contact_us": "اتصل بنا",
+  "contact_description": "نحن متاحون لتلبية احتياجاتكم",
+  "send_message": "أرسل رسالة",
+  "name": "الاسم",
+  "your_name": "اسمك",
+  "email": "البريد الإلكتروني",
+  "your_email": "بريدك@مثال.com",
+  "subject": "الموضوع",
+  "message_subject": "موضوع الرسالة",
+  "message": "الرسالة",
+  "type_message": "اكتب رسالتك...",
+  "contact_information": "معلومات الاتصال",
+  "address": "العنوان",
+  "address_line1": "Av. Cândido de Abreu, 470",
+  "address_line2": "Centro Cívico",
+  "address_line3": "كوريتيبا، PR 80530-000",
+  "location_map": "خريطة الموقع",
+  "name_validation": "يجب أن يحتوي الاسم على الأقل حرفين",
+  "email_validation": "بريد إلكتروني غير صالح",
+  "subject_validation": "يجب أن يحتوي الموضوع على الأقل 5 أحرف",
+  "message_validation": "يجب أن تحتوي الرسالة على الأقل 10 أحرف",
+  "message_sent": "تم إرسال الرسالة",
+  "thank_you_message": "شكرا لاتصالك بنا. سنرد عليك قريبا!"
+}

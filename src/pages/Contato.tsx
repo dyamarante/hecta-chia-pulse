@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -10,24 +11,28 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Header from '@/components/Header';
 import HectaLogo from '@/components/HectaLogo';
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Nome deve ter pelo menos 2 caracteres"
-  }),
-  email: z.string().email({
-    message: "Email inválido"
-  }),
-  subject: z.string().min(5, {
-    message: "Assunto deve ter pelo menos 5 caracteres"
-  }),
-  message: z.string().min(10, {
-    message: "Mensagem deve ter pelo menos 10 caracteres"
-  })
-});
+import { useTranslation } from 'react-i18next';
+
 const Contato = () => {
-  const {
-    toast
-  } = useToast();
+  const { t } = useTranslation(['common', 'contact']);
+  const { toast } = useToast();
+
+  // Schema com mensagens traduzíveis
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: t('contact:name_validation')
+    }),
+    email: z.string().email({
+      message: t('contact:email_validation')
+    }),
+    subject: z.string().min(5, {
+      message: t('contact:subject_validation')
+    }),
+    message: z.string().min(10, {
+      message: t('contact:message_validation')
+    })
+  });
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,28 +42,30 @@ const Contato = () => {
       message: ""
     }
   });
+  
   function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real application, you would send this data to a server
     console.log(values);
     toast({
-      title: "Mensagem enviada",
-      description: "Agradecemos seu contato. Retornaremos em breve!"
+      title: t('contact:message_sent'),
+      description: t('contact:thank_you_message')
     });
     form.reset();
   }
+  
   return <div className="min-h-screen bg-white">
       <Header />
       
       <main className="pt-36 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-4xl font-bold text-hecta-gray mb-2">Fale Conosco</h1>
-            <p className="text-xl text-gray-600 mb-12">Estamos à disposição para atender suas necessidades</p>
+            <h1 className="text-4xl font-bold text-hecta-gray mb-2">{t('contact:contact_us')}</h1>
+            <p className="text-xl text-gray-600 mb-12">{t('contact:contact_description')}</p>
             
             <div className="grid md:grid-cols-3 gap-10">
               <div className="col-span-2">
                 <div className="bg-white rounded-lg shadow-lg p-8">
-                  <h2 className="text-2xl font-bold text-hecta-gray mb-6">Envie uma mensagem</h2>
+                  <h2 className="text-2xl font-bold text-hecta-gray mb-6">{t('contact:send_message')}</h2>
                   
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -66,9 +73,9 @@ const Contato = () => {
                         <FormField control={form.control} name="name" render={({
                         field
                       }) => <FormItem>
-                              <FormLabel>Nome</FormLabel>
+                              <FormLabel>{t('contact:name')}</FormLabel>
                               <FormControl>
-                                <Input placeholder="Seu nome" {...field} />
+                                <Input placeholder={t('contact:your_name')} {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>} />
@@ -76,9 +83,9 @@ const Contato = () => {
                         <FormField control={form.control} name="email" render={({
                         field
                       }) => <FormItem>
-                              <FormLabel>Email</FormLabel>
+                              <FormLabel>{t('contact:email')}</FormLabel>
                               <FormControl>
-                                <Input placeholder="seu@email.com" {...field} />
+                                <Input placeholder={t('contact:your_email')} {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>} />
@@ -87,9 +94,9 @@ const Contato = () => {
                       <FormField control={form.control} name="subject" render={({
                       field
                     }) => <FormItem>
-                            <FormLabel>Assunto</FormLabel>
+                            <FormLabel>{t('contact:subject')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="Assunto da mensagem" {...field} />
+                              <Input placeholder={t('contact:message_subject')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>} />
@@ -97,16 +104,16 @@ const Contato = () => {
                       <FormField control={form.control} name="message" render={({
                       field
                     }) => <FormItem>
-                            <FormLabel>Mensagem</FormLabel>
+                            <FormLabel>{t('contact:message')}</FormLabel>
                             <FormControl>
-                              <Textarea placeholder="Digite sua mensagem..." className="min-h-[150px]" {...field} />
+                              <Textarea placeholder={t('contact:type_message')} className="min-h-[150px]" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>} />
                       
                       <Button type="submit" className="w-full bg-hecta-green hover:bg-hecta-green/90 text-white">
                         <MessageSquare className="mr-2 h-4 w-4" />
-                        Enviar Mensagem
+                        {t('contact:send_message')}
                       </Button>
                     </form>
                   </Form>
@@ -115,24 +122,20 @@ const Contato = () => {
               
               <div>
                 <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
-                  <h2 className="text-2xl font-bold text-hecta-gray mb-6">Informações de Contato</h2>
+                  <h2 className="text-2xl font-bold text-hecta-gray mb-6">{t('contact:contact_information')}</h2>
                   
                   <ul className="space-y-6">
                     <li className="flex items-start">
                       <MapPin className="text-hecta-green mr-3 h-5 w-5 mt-1 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold mb-1">Endereço</p>
+                        <p className="font-semibold mb-1">{t('contact:address')}</p>
                         <p className="text-gray-600">
-                          Av. Cândido de Abreu, 470<br />
-                          Centro Cívico<br />
-                          Curitiba, PR 80530-000
+                          {t('contact:address_line1')}<br />
+                          {t('contact:address_line2')}<br />
+                          {t('contact:address_line3')}
                         </p>
                       </div>
                     </li>
-                    
-                    
-                    
-                    
                   </ul>
                 </div>
                 
@@ -141,16 +144,15 @@ const Contato = () => {
                     <div className="bg-white p-3 rounded-lg inline-block mb-3">
                       <HectaLogo className="h-8" />
                     </div>
-                    <h3 className="text-xl font-bold">Hecta Chia Global</h3>
+                    <h3 className="text-xl font-bold">{t('common:company_name')}</h3>
                   </div>
                   
                   <p className="text-white/80 mb-6">
-                    Estamos presentes em 5 países, fornecendo chia de alta qualidade
-                    com certificações internacionais.
+                    {t('common:company_description')}
                   </p>
                   
                   <Button variant="outline" className="w-full border-white text-white hover:bg-white hover:text-hecta-green">
-                    Saiba Mais
+                    {t('common:learn_more')}
                   </Button>
                 </div>
               </div>
@@ -160,7 +162,7 @@ const Contato = () => {
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.115928019772!2d-49.267941024900195!3d-25.41644377563634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce46e5dd2bf2b%3A0xdea9ec5499774355!2sAv.%20C%C3%A2ndido%20de%20Abreu%2C%20470%20-%20Centro%20C%C3%ADvico%2C%20Curitiba%20-%20PR%2C%2080530-000!5e0!3m2!1sen!2sbr!4v1716188792558!5m2!1sen!2sbr" width="100%" height="450" style={{
                 border: 0
-              }} allowFullScreen loading="lazy" title="Mapa de Localização" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              }} allowFullScreen loading="lazy" title={t('contact:location_map')} referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
@@ -175,8 +177,7 @@ const Contato = () => {
                 <HectaLogo className="h-8" />
               </div>
               <p className="mb-4">
-                Referência global em produção, processamento e 
-                comercialização de chia de alta qualidade.
+                {t('common:footer_description')}
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="hover:text-hecta-lime">LinkedIn</a>
@@ -185,26 +186,26 @@ const Contato = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">Sedes Globais</h3>
+              <h3 className="text-xl font-bold mb-4">{t('common:global_offices')}</h3>
               <ul className="space-y-2">
-                <li>Curitiba, Brasil (Matriz)</li>
-                <li>São Paulo, Brasil</li>
-                <li>Assunção, Paraguai</li>
-                <li>Qingdao, China</li>
-                <li>Nova York, EUA</li>
+                <li>{t('common:office_curitiba')}</li>
+                <li>{t('common:office_saopaulo')}</li>
+                <li>{t('common:office_asuncion')}</li>
+                <li>{t('common:office_qingdao')}</li>
+                <li>{t('common:office_newyork')}</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">Contato</h3>
+              <h3 className="text-xl font-bold mb-4">{t('common:contact')}</h3>
               <p className="mb-2">contato@hectachia.com</p>
               <p className="mb-4">+55 (41) 3000-0000</p>
               <Button className="bg-hecta-lime hover:bg-white hover:text-hecta-green">
-                Fale Conosco
+                {t('common:contact_us')}
               </Button>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
-            <p>© {new Date().getFullYear()} Hecta Chia. Todos os direitos reservados.</p>
+            <p>{t('common:copyright', { year: new Date().getFullYear() })}</p>
           </div>
         </div>
       </footer>

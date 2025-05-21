@@ -1,0 +1,20 @@
+
+{
+  "home": "Home",
+  "certifications": "Certificações",
+  "contact": "Contato",
+  "login_platform": "Login Plataforma",
+  "select_language": "Selecionar idioma",
+  "company_name": "Hecta Chia Global",
+  "company_description": "Estamos presentes em 5 países, fornecendo chia de alta qualidade com certificações internacionais.",
+  "learn_more": "Saiba Mais",
+  "footer_description": "Referência global em produção, processamento e comercialização de chia de alta qualidade.",
+  "global_offices": "Sedes Globais",
+  "office_curitiba": "Curitiba, Brasil (Matriz)",
+  "office_saopaulo": "São Paulo, Brasil",
+  "office_asuncion": "Assunção, Paraguai",
+  "office_qingdao": "Qingdao, China",
+  "office_newyork": "Nova York, EUA",
+  "contact_us": "Fale Conosco",
+  "copyright": "© {{year}} Hecta Chia. Todos os direitos reservados."
+}

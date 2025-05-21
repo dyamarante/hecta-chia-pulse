@@ -1,0 +1,26 @@
+
+{
+  "contact_us": "Contact Us",
+  "contact_description": "We are available to meet your needs",
+  "send_message": "Send a message",
+  "name": "Name",
+  "your_name": "Your name",
+  "email": "Email",
+  "your_email": "your@email.com",
+  "subject": "Subject",
+  "message_subject": "Message subject",
+  "message": "Message",
+  "type_message": "Type your message...",
+  "contact_information": "Contact Information",
+  "address": "Address",
+  "address_line1": "Av. Cândido de Abreu, 470",
+  "address_line2": "Centro Cívico",
+  "address_line3": "Curitiba, PR 80530-000",
+  "location_map": "Location Map",
+  "name_validation": "Name must have at least 2 characters",
+  "email_validation": "Invalid email",
+  "subject_validation": "Subject must have at least 5 characters",
+  "message_validation": "Message must have at least 10 characters",
+  "message_sent": "Message sent",
+  "thank_you_message": "Thank you for contacting us. We will get back to you soon!"
+}

@@ -1,0 +1,20 @@
+
+{
+  "home": "首页",
+  "certifications": "认证",
+  "contact": "联系我们",
+  "login_platform": "平台登录",
+  "select_language": "选择语言",
+  "company_name": "Hecta Chia全球",
+  "company_description": "我们在5个国家/地区设有机构，提供具有国际认证的高质量奇亚籽。",
+  "learn_more": "了解更多",
+  "footer_description": "高质量奇亚籽生产、加工和营销的全球参考标准。",
+  "global_offices": "全球办事处",
+  "office_curitiba": "库里蒂巴，巴西（总部）",
+  "office_saopaulo": "圣保罗，巴西",
+  "office_asuncion": "亚松森，巴拉圭",
+  "office_qingdao": "青岛，中国",
+  "office_newyork": "纽约，美国",
+  "contact_us": "联系我们",
+  "copyright": "© {{year}} Hecta Chia。保留所有权利。"
+}

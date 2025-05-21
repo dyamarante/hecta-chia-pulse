@@ -5,30 +5,37 @@ import { Menu } from 'lucide-react';
 import PriceTicker from './PriceTicker';
 import HectaLogo from './HectaLogo';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface NavItem {
   name: string;
   href: string;
+  translationKey: string;
 }
-
-const navItems: NavItem[] = [
-  {
-    name: 'Home',
-    href: '/'
-  }, 
-  {
-    name: 'Certificações',
-    href: '/certificacoes'
-  },
-  {
-    name: 'Contato',
-    href: '/contato'
-  }
-];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useTranslation();
+
+  const navItems: NavItem[] = [
+    {
+      name: 'Home',
+      href: '/',
+      translationKey: 'home'
+    }, 
+    {
+      name: 'Certificações',
+      href: '/certificacoes',
+      translationKey: 'certifications'
+    },
+    {
+      name: 'Contato',
+      href: '/contato',
+      translationKey: 'contact'
+    }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,12 +62,12 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map(item => <Link key={item.name} to={item.href} className="text-hecta-gray hover:text-hecta-gold transition-colors duration-200 font-medium">
-              {item.name}
+              {t(item.translationKey)}
             </Link>)}
         </nav>
         
-        <div className="hidden md:block">
-          
+        <div className="hidden md:flex items-center space-x-2">
+          <LanguageSwitcher />
         </div>
         
         {/* Mobile menu button */}
@@ -74,10 +81,14 @@ const Header = () => {
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-4">
               {navItems.map(item => <Link key={item.name} to={item.href} className="text-hecta-gray hover:text-hecta-gold py-2 transition-colors duration-200 font-medium" onClick={() => setIsMenuOpen(false)}>
-                  {item.name}
+                  {t(item.translationKey)}
                 </Link>)}
+              <div className="flex justify-between items-center py-2">
+                <span className="text-hecta-gray">{t('select_language')}</span>
+                <LanguageSwitcher />
+              </div>
               <Button className="bg-hecta-gold hover:bg-hecta-gold/80 text-white w-full">
-                Login Plataforma
+                {t('login_platform')}
               </Button>
             </nav>
           </div>

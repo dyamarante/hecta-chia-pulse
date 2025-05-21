@@ -1,0 +1,26 @@
+
+{
+  "contact_us": "联系我们",
+  "contact_description": "我们随时准备满足您的需求",
+  "send_message": "发送消息",
+  "name": "姓名",
+  "your_name": "您的姓名",
+  "email": "电子邮件",
+  "your_email": "您的邮箱@example.com",
+  "subject": "主题",
+  "message_subject": "消息主题",
+  "message": "消息",
+  "type_message": "请输入您的消息...",
+  "contact_information": "联系信息",
+  "address": "地址",
+  "address_line1": "Av. Cândido de Abreu, 470",
+  "address_line2": "Centro Cívico",
+  "address_line3": "库里蒂巴, PR 80530-000",
+  "location_map": "位置地图",
+  "name_validation": "姓名必须至少有2个字符",
+  "email_validation": "无效的电子邮件",
+  "subject_validation": "主题必须至少有5个字符",
+  "message_validation": "消息必须至少有10个字符",
+  "message_sent": "消息已发送",
+  "thank_you_message": "感谢您与我们联系。我们将尽快回复您！"
+}

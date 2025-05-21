@@ -1,0 +1,26 @@
+
+{
+  "contact_us": "Fale Conosco",
+  "contact_description": "Estamos à disposição para atender suas necessidades",
+  "send_message": "Envie uma mensagem",
+  "name": "Nome",
+  "your_name": "Seu nome",
+  "email": "Email",
+  "your_email": "seu@email.com",
+  "subject": "Assunto",
+  "message_subject": "Assunto da mensagem",
+  "message": "Mensagem",
+  "type_message": "Digite sua mensagem...",
+  "contact_information": "Informações de Contato",
+  "address": "Endereço",
+  "address_line1": "Av. Cândido de Abreu, 470",
+  "address_line2": "Centro Cívico",
+  "address_line3": "Curitiba, PR 80530-000",
+  "location_map": "Mapa de Localização",
+  "name_validation": "Nome deve ter pelo menos 2 caracteres",
+  "email_validation": "Email inválido",
+  "subject_validation": "Assunto deve ter pelo menos 5 caracteres",
+  "message_validation": "Mensagem deve ter pelo menos 10 caracteres",
+  "message_sent": "Mensagem enviada",
+  "thank_you_message": "Agradecemos seu contato. Retornaremos em breve!"
+}
