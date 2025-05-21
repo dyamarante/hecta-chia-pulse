@@ -29,176 +29,176 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CheckCircle, FileText, QrCode, Calendar, Clock, ShieldCheck } from 'lucide-react';
 
-const certifications = [
-  {
-    id: 'usda',
-    name: 'USDA Organic',
-    scope: 'Regulamento NOP (7 CFR Part 205) — EUA',
-    benefits: [
-      'Sem pesticidas sintéticos',
-      'Exigido para uso do selo "Organic" em rótulos americanos'
-    ],
-    validity: 'Auditor externo anual. Certificado vigente até dez/2025.',
-    auditor: 'AMS',
-    image: 'https://www.usda.gov/sites/default/files/usda-logo.png'
-  },
-  {
-    id: 'eu',
-    name: 'EU Organic',
-    scope: 'Regulamento (UE) 2018/848 — União Europeia',
-    benefits: [
-      'Entrada preferencial na UE',
-      'Elegibilidade para claims "Produto biológico"'
-    ],
-    validity: 'Certificador ECOCERT — validade jun/2025',
-    auditor: 'ECOCERT',
-    image: '/lovable-uploads/9e1fcabb-d8c0-4c8e-82cc-9dd2cf53cce0.png'
-  },
-  {
-    id: 'cor',
-    name: 'COR Canada',
-    scope: 'Canadian Organic Regime — Canadá',
-    benefits: [
-      'Cumpre equivalência bilateral NOP↔COR',
-      'Acesso a varejistas "Health & Bulk"'
-    ],
-    validity: 'Certificado #COR-21-247, válido fev/2026',
-    auditor: 'COR',
-    image: '/lovable-uploads/88008385-0722-45be-b132-1c9c65bbcc1d.png'
-  },
-  {
-    id: 'jas',
-    name: 'JAS Organic (MAFF)',
-    scope: 'Compulsório para "organic" no Japão',
-    benefits: [
-      'Isenção de inspeção fitossanitária adicional',
-      'Uso do logotipo JAS nas embalagens'
-    ],
-    validity: 'Auditor MAFF-acreditado — validade mar/2026',
-    auditor: 'MAFF',
-    image: '/lovable-uploads/3c1d4c52-aafb-489e-a14d-0e8237afb1c0.png'
-  },
-  {
-    id: 'brcgs',
-    name: 'BRCGS Food Safety AA+',
-    scope: 'GFSI global (unannounced audit)',
-    benefits: [
-      'Grau máximo de segurança alimentar',
-      'Reduz necessidade de segunda-parte sobre auditorias'
-    ],
-    validity: 'Emitido por SGS — resultado AA+ (auditoria surpresa).',
-    auditor: 'Complete Food Safety Ltd',
-    image: '/lovable-uploads/9679d345-1d34-4876-b36b-691161019da6.png'
-  },
-  {
-    id: 'fda',
-    name: 'FDA FCE/Bio-T',
-    scope: 'Food Facility Registration & Acidified Foods',
-    benefits: [
-      'Conformidade FSMA para importadores EUA'
-    ],
-    validity: 'FFR #18521423952 renovado 2024/2026',
-    auditor: 'FDA',
-    image: '/lovable-uploads/f5b83a1e-17e8-44ad-9488-ec77c92f3fde.png'
-  },
-  {
-    id: 'kosher',
-    name: 'Kosher (OU)',
-    scope: 'Pareve — aceito em 100+ países',
-    benefits: [
-      'Amplia alcance a consumidores com dieta kosher, veganos e vegetarianos',
-      'Requisito para muitas redes de varejo dos EUA'
-    ],
-    validity: 'Rabbi audit trimestral',
-    auditor: 'OU Kosher Certification',
-    image: '/lovable-uploads/d4acb6d3-1c37-4f94-b53c-e45e68148a24.png'
-  },
-  {
-    id: 'halal',
-    name: 'Halal GCC',
-    scope: 'GSO 2055-1 – Emirados, Arábia Saudita & MENA',
-    benefits: [
-      'Porta de entrada para 420 mi consumidores muçulmanos',
-      'Selo de pureza e transparência'
-    ],
-    validity: 'Certifier: AHF (validade out/2025)',
-    auditor: 'American Halal Foundation',
-    image: '/lovable-uploads/d92916bd-d8dc-4369-abc0-d159fb0b9c22.png'
-  },
-  {
-    id: 'nongmo',
-    name: 'Non-GMO Project Verified',
-    scope: 'USA & Canadá',
-    benefits: [
-      'Garantia third-party de ausência de OGM',
-      'Alta aceitação em lojas "natural/wholefood"'
-    ],
-    validity: 'ID #NGPV-021-CHI-2024 (renov. anual)',
-    auditor: 'nongmoproject.org',
-    image: '/lovable-uploads/cb524aef-f8ac-4895-b9e7-bafc7c890079.png'
-  },
-  {
-    id: 'smeta',
-    name: 'SMETA 4-Pillar',
-    scope: 'Trabalho, Saúde & Segurança, Meio Ambiente, Ética',
-    benefits: [
-      'Prova de responsabilidade social corporativa',
-      'Aceito por grandes varejistas globais'
-    ],
-    validity: 'Auditor NSF-Sedex; renovado jan/2025',
-    auditor: 'Sedex',
-    image: '/lovable-uploads/0bb62fb2-d29a-4a46-922c-7f83c8aae5dc.png'
-  },
-  {
-    id: 'gluten',
-    name: 'Non-GMO / Gluten-Free (Interno)',
-    scope: 'Lotes controlados',
-    benefits: [
-      'Análises ELISA <10 ppm (glúten)',
-      'Relatórios no blockchain Hecta'
-    ],
-    validity: 'Batch-based; disponível por QR',
-    auditor: 'Interno',
-    image: '/lovable-uploads/663fe5e3-10a8-46e0-a93d-0c592f1a08da.png'
-  }
-];
-
-const timelineEvents = [
-  { year: 2018, event: 'USDA Organic' },
-  { year: 2019, event: 'EU Organic + COR' },
-  { year: 2020, event: 'BRCGS A → upgrade AA+ em 2023' },
-  { year: 2021, event: 'Kosher OU' },
-  { year: 2022, event: 'Halal GCC + SMETA 4P' },
-  { year: 2023, event: 'Non-GMO Project Verified' },
-];
-
-const faqs = [
-  {
-    question: "Por que alguns certificados não mostram a data de inspeção deste ano?",
-    answer: "Publicamos apenas versões que não expõem dados sensíveis; a validade legal está no blockchain."
-  },
-  {
-    question: "Posso usar o selo USDA na embalagem da minha marca?",
-    answer: "Sim, desde que não modifique o status orgânico do produto em sua planta e cite nosso certificado NOP."
-  },
-  {
-    question: "A Hecta oferece suporte para auditorias de segunda parte?",
-    answer: "Disponibilizamos salas virtuais e acesso a relatórios; auditor presencial pode ser agendado em até 30 dias."
-  }
-];
-
-const markets = [
-  { value: "eua", label: "EUA" },
-  { value: "ue", label: "União Europeia" },
-  { value: "asia", label: "Ásia" },
-  { value: "orientemedio", label: "Oriente Médio" }
-];
-
 const Certificacoes = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedMarket, setSelectedMarket] = useState("");
   const navigate = useNavigate();
   const { t } = useTranslation(['certifications']);
+
+  const certifications = [
+    {
+      id: 'usda',
+      name: t('usda_organic'),
+      scope: t('nop_regulation'),
+      benefits: [
+        t('no_synthetic_pesticides'),
+        t('required_for_organic_label')
+      ],
+      validity: 'Auditor externo anual. Certificado vigente até dez/2025.',
+      auditor: 'AMS',
+      image: 'https://www.usda.gov/sites/default/files/usda-logo.png'
+    },
+    {
+      id: 'eu',
+      name: t('eu_organic'),
+      scope: t('eu_regulation'),
+      benefits: [
+        t('preferential_eu_entry'),
+        t('eligibility_for_organic_claims')
+      ],
+      validity: 'Certificador ECOCERT — validade jun/2025',
+      auditor: 'ECOCERT',
+      image: '/lovable-uploads/9e1fcabb-d8c0-4c8e-82cc-9dd2cf53cce0.png'
+    },
+    {
+      id: 'cor',
+      name: t('cor_canada'),
+      scope: t('canadian_organic_regime'),
+      benefits: [
+        t('complies_bilateral_equivalence'),
+        t('access_health_bulk_retailers')
+      ],
+      validity: 'Certificado #COR-21-247, válido fev/2026',
+      auditor: 'COR',
+      image: '/lovable-uploads/88008385-0722-45be-b132-1c9c65bbcc1d.png'
+    },
+    {
+      id: 'jas',
+      name: t('jas_organic'),
+      scope: t('japan_compulsory'),
+      benefits: [
+        'Isenção de inspeção fitossanitária adicional',
+        'Uso do logotipo JAS nas embalagens'
+      ],
+      validity: 'Auditor MAFF-acreditado — validade mar/2026',
+      auditor: 'MAFF',
+      image: '/lovable-uploads/3c1d4c52-aafb-489e-a14d-0e8237afb1c0.png'
+    },
+    {
+      id: 'brcgs',
+      name: t('brcgs_food_safety'),
+      scope: t('gfsi_global'),
+      benefits: [
+        'Grau máximo de segurança alimentar',
+        'Reduz necessidade de segunda-parte sobre auditorias'
+      ],
+      validity: 'Emitido por SGS — resultado AA+ (auditoria surpresa).',
+      auditor: 'Complete Food Safety Ltd',
+      image: '/lovable-uploads/9679d345-1d34-4876-b36b-691161019da6.png'
+    },
+    {
+      id: 'fda',
+      name: 'FDA FCE/Bio-T',
+      scope: t('fda_registration'),
+      benefits: [
+        'Conformidade FSMA para importadores EUA'
+      ],
+      validity: 'FFR #18521423952 renovado 2024/2026',
+      auditor: 'FDA',
+      image: '/lovable-uploads/f5b83a1e-17e8-44ad-9488-ec77c92f3fde.png'
+    },
+    {
+      id: 'kosher',
+      name: 'Kosher (OU)',
+      scope: 'Pareve — aceito em 100+ países',
+      benefits: [
+        'Amplia alcance a consumidores com dieta kosher, veganos e vegetarianos',
+        'Requisito para muitas redes de varejo dos EUA'
+      ],
+      validity: 'Rabbi audit trimestral',
+      auditor: 'OU Kosher Certification',
+      image: '/lovable-uploads/d4acb6d3-1c37-4f94-b53c-e45e68148a24.png'
+    },
+    {
+      id: 'halal',
+      name: 'Halal GCC',
+      scope: 'GSO 2055-1 – Emirados, Arábia Saudita & MENA',
+      benefits: [
+        'Porta de entrada para 420 mi consumidores muçulmanos',
+        'Selo de pureza e transparência'
+      ],
+      validity: 'Certifier: AHF (validade out/2025)',
+      auditor: 'American Halal Foundation',
+      image: '/lovable-uploads/d92916bd-d8dc-4369-abc0-d159fb0b9c22.png'
+    },
+    {
+      id: 'nongmo',
+      name: 'Non-GMO Project Verified',
+      scope: 'USA & Canadá',
+      benefits: [
+        'Garantia third-party de ausência de OGM',
+        'Alta aceitação em lojas "natural/wholefood"'
+      ],
+      validity: 'ID #NGPV-021-CHI-2024 (renov. anual)',
+      auditor: 'nongmoproject.org',
+      image: '/lovable-uploads/cb524aef-f8ac-4895-b9e7-bafc7c890079.png'
+    },
+    {
+      id: 'smeta',
+      name: 'SMETA 4-Pillar',
+      scope: 'Trabalho, Saúde & Segurança, Meio Ambiente, Ética',
+      benefits: [
+        'Prova de responsabilidade social corporativa',
+        'Aceito por grandes varejistas globais'
+      ],
+      validity: 'Auditor NSF-Sedex; renovado jan/2025',
+      auditor: 'Sedex',
+      image: '/lovable-uploads/0bb62fb2-d29a-4a46-922c-7f83c8aae5dc.png'
+    },
+    {
+      id: 'gluten',
+      name: 'Non-GMO / Gluten-Free (Interno)',
+      scope: 'Lotes controlados',
+      benefits: [
+        'Análises ELISA <10 ppm (glúten)',
+        'Relatórios no blockchain Hecta'
+      ],
+      validity: 'Batch-based; disponível por QR',
+      auditor: 'Interno',
+      image: '/lovable-uploads/663fe5e3-10a8-46e0-a93d-0c592f1a08da.png'
+    }
+  ];
+
+  const timelineEvents = [
+    { year: 2018, event: 'USDA Organic' },
+    { year: 2019, event: 'EU Organic + COR' },
+    { year: 2020, event: 'BRCGS A → upgrade AA+ em 2023' },
+    { year: 2021, event: 'Kosher OU' },
+    { year: 2022, event: 'Halal GCC + SMETA 4P' },
+    { year: 2023, event: 'Non-GMO Project Verified' },
+  ];
+
+  const faqs = [
+    {
+      question: "Por que alguns certificados não mostram a data de inspeção deste ano?",
+      answer: "Publicamos apenas versões que não expõem dados sensíveis; a validade legal está no blockchain."
+    },
+    {
+      question: "Posso usar o selo USDA na embalagem da minha marca?",
+      answer: "Sim, desde que não modifique o status orgânico do produto em sua planta e cite nosso certificado NOP."
+    },
+    {
+      question: "A Hecta oferece suporte para auditorias de segunda parte?",
+      answer: "Disponibilizamos salas virtuais e acesso a relatórios; auditor presencial pode ser agendado em até 30 dias."
+    }
+  ];
+
+  const markets = [
+    { value: "eua", label: "EUA" },
+    { value: "ue", label: "União Europeia" },
+    { value: "asia", label: "Ásia" },
+    { value: "orientemedio", label: "Oriente Médio" }
+  ];
 
   const handleRedirectToContact = () => {
     navigate('/contato');
