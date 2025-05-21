@@ -508,10 +508,10 @@ const Certificacoes = () => {
                   <div className="flex justify-between items-center py-2 border-b">
                     <span className="text-gray-600">{t('harvest')}</span>
                     <span className="font-medium">
-                      {i18n.language === 'pt' && 'Maio 2024'}
-                      {i18n.language === 'en' && 'May 2024'}
-                      {i18n.language === 'zh' && '2024年5月'}
-                      {i18n.language === 'ar' && 'مايو 2024'}
+                      {i18n.language === 'pt' ? t('may_2024') :
+                       i18n.language === 'en' ? t('may_2024') :
+                       i18n.language === 'zh' ? t('may_2024') :
+                       t('may_2024')}
                     </span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b">
