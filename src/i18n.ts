@@ -34,7 +34,7 @@ i18n
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
     // Namespaces de tradução
-    ns: ['common', 'contact', 'certifications', 'home'],
+    ns: ['common', 'contact', 'certifications', 'home', 'notfound'],
     defaultNS: 'common',
   });
 

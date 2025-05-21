@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { 
@@ -198,6 +198,7 @@ const Certificacoes = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedMarket, setSelectedMarket] = useState("");
   const navigate = useNavigate();
+  const { t } = useTranslation(['certifications']);
 
   const handleRedirectToContact = () => {
     navigate('/contato');
@@ -211,19 +212,17 @@ const Certificacoes = () => {
       <section className="pt-32 pb-16 bg-gradient-to-b from-hecta-gold/10 to-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-hecta-gray mb-6">
-            Confiança que atravessa fronteiras
+            {t('trust_across_borders')}
           </h1>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-            Cada lote de chia que você recebe tem lastro em certificações reconhecidas 
-            mundialmente e auditadas por terceiros. Qualidade, segurança alimentar e 
-            responsabilidade social em um só lugar.
+            {t('certifications_description')}
           </p>
           <Button 
             onClick={handleRedirectToContact}
             className="bg-hecta-gold hover:bg-hecta-gold/90 text-white px-6 py-3 text-lg"
           >
             <FileText className="mr-2" />
-            Baixar Certificados PDF
+            {t('download_certificates')}
           </Button>
         </div>
       </section>
@@ -232,7 +231,7 @@ const Certificacoes = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-hecta-gray mb-10 text-center">
-            Matriz de Certificações
+            {t('certification_matrix')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -252,15 +251,15 @@ const Certificacoes = () => {
                   <CardTitle>{cert.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-sm text-gray-600 font-semibold mb-2">Benefícios-chave:</p>
+                  <p className="text-sm text-gray-600 font-semibold mb-2">{t('key_benefits')}</p>
                   <ul className="list-disc pl-5 space-y-1 mb-4">
                     {cert.benefits.map((benefit, i) => (
                       <li key={i} className="text-sm text-gray-600">{benefit}</li>
                     ))}
                   </ul>
                   <div className="text-sm text-gray-500">
-                    <p><span className="font-medium">Validade:</span> {cert.validity}</p>
-                    <p><span className="font-medium">Auditor:</span> {cert.auditor}</p>
+                    <p><span className="font-medium">{t('validity')}</span> {cert.validity}</p>
+                    <p><span className="font-medium">{t('auditor')}</span> {cert.auditor}</p>
                   </div>
                 </CardContent>
                 <CardFooter className="pt-0">
@@ -269,7 +268,7 @@ const Certificacoes = () => {
                     className="w-full border-hecta-gold text-hecta-gold hover:bg-hecta-gold/10"
                     onClick={handleRedirectToContact}
                   >
-                    Ver certificado
+                    {t('view_certificate')}
                   </Button>
                 </CardFooter>
               </Card>
@@ -284,17 +283,16 @@ const Certificacoes = () => {
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2">
               <h2 className="text-3xl font-bold text-hecta-gray mb-6">
-                Verificação Digital & Blockchain
+                {t('digital_verification')}
               </h2>
               <p className="text-lg text-gray-700 mb-6">
-                Cada lote de chia contém um QR code exclusivo que dá acesso à página de 
-                verificação no Hecta-pay-hub. Escaneie o código para acessar:
+                {t('digital_verification_description')}
               </p>
               <ul className="space-y-4 mb-8">
                 {[
-                  { icon: <FileText />, text: "PDF do certificado relevante para o lote" },
-                  { icon: <QrCode />, text: "Resultados de análises laboratoriais (micotoxinas, glúten, pesticidas)" },
-                  { icon: <Clock />, text: "Carimbo de data/hora (UTC) da transação em blockchain" }
+                  { icon: <FileText />, text: t('certificate_pdf') },
+                  { icon: <QrCode />, text: t('lab_results') },
+                  { icon: <Clock />, text: t('blockchain_timestamp') }
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
                     <div className="mt-1 mr-3 text-hecta-gold">
@@ -309,7 +307,7 @@ const Certificacoes = () => {
                 onClick={handleRedirectToContact}
               >
                 <QrCode className="mr-2" />
-                Demonstração do QR Code
+                {t('qr_demo')}
               </Button>
             </div>
             <div className="lg:w-1/2 flex justify-center">
@@ -319,20 +317,20 @@ const Certificacoes = () => {
                 </div>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-2 border-b">
-                    <span className="text-gray-600">Lote</span>
+                    <span className="text-gray-600">{t('batch')}</span>
                     <span className="font-medium">HCT-BR-2024-05781</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b">
-                    <span className="text-gray-600">Safra</span>
+                    <span className="text-gray-600">{t('harvest')}</span>
                     <span className="font-medium">Maio 2024</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b">
-                    <span className="text-gray-600">Blockchain Hash</span>
+                    <span className="text-gray-600">{t('blockchain_hash')}</span>
                     <span className="font-medium text-xs">0x7fE5...93c1</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-gray-600">Verificado</span>
-                    <Badge className="bg-green-500">Autêntico</Badge>
+                    <span className="text-gray-600">{t('verified')}</span>
+                    <Badge className="bg-green-500">{t('authentic')}</Badge>
                   </div>
                 </div>
               </div>
@@ -345,7 +343,7 @@ const Certificacoes = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-hecta-gray mb-10 text-center">
-            Linha do tempo da Conformidade
+            {t('compliance_timeline')}
           </h2>
           
           <ScrollArea className="w-full whitespace-nowrap">
@@ -375,7 +373,7 @@ const Certificacoes = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-hecta-gray mb-10 text-center">
-            Perguntas Frequentes
+            {t('faq')}
           </h2>
           
           <div className="max-w-3xl mx-auto">
@@ -399,19 +397,19 @@ const Certificacoes = () => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Baixar Certificados</DialogTitle>
+            <DialogTitle>{t('download_certificates_title')}</DialogTitle>
             <DialogDescription>
-              Selecione o mercado para visualizar e baixar os certificados disponíveis.
+              {t('select_market_description')}
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div className="space-y-2">
               <label htmlFor="market" className="text-sm font-medium">
-                Mercado
+                {t('market')}
               </label>
               <Select value={selectedMarket} onValueChange={setSelectedMarket}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecione um mercado" />
+                  <SelectValue placeholder={t('select_market')} />
                 </SelectTrigger>
                 <SelectContent>
                   {markets.map((market) => (
@@ -426,9 +424,9 @@ const Certificacoes = () => {
             {selectedMarket && (
               <Tabs defaultValue="organic">
                 <TabsList className="grid grid-cols-3 mb-4">
-                  <TabsTrigger value="organic">Orgânicos</TabsTrigger>
-                  <TabsTrigger value="safety">Seg. Alimentar</TabsTrigger>
-                  <TabsTrigger value="esg">ESG</TabsTrigger>
+                  <TabsTrigger value="organic">{t('organic')}</TabsTrigger>
+                  <TabsTrigger value="safety">{t('food_safety')}</TabsTrigger>
+                  <TabsTrigger value="esg">{t('esg')}</TabsTrigger>
                 </TabsList>
                 <TabsContent value="organic" className="space-y-2">
                   <div className="border rounded-md p-3 flex justify-between items-center">
@@ -440,7 +438,7 @@ const Certificacoes = () => {
                     </div>
                     <Button size="sm" variant="ghost" onClick={handleRedirectToContact}>
                       <FileText className="h-4 w-4 mr-2" />
-                      Baixar
+                      {t('download')}
                     </Button>
                   </div>
                 </TabsContent>
@@ -454,7 +452,7 @@ const Certificacoes = () => {
                     </div>
                     <Button size="sm" variant="ghost" onClick={handleRedirectToContact}>
                       <FileText className="h-4 w-4 mr-2" />
-                      Baixar
+                      {t('download')}
                     </Button>
                   </div>
                 </TabsContent>
@@ -468,7 +466,7 @@ const Certificacoes = () => {
                     </div>
                     <Button size="sm" variant="ghost" onClick={handleRedirectToContact}>
                       <FileText className="h-4 w-4 mr-2" />
-                      Baixar
+                      {t('download')}
                     </Button>
                   </div>
                 </TabsContent>
