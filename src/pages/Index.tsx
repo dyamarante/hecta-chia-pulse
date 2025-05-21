@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import MarketAnalysisTabs from '@/components/MarketAnalysisTabs';
@@ -9,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation(['common', 'home']);
   
   const scrollToMarketAnalysis = () => {
     const marketSection = document.querySelector('#market-analysis-section');
@@ -42,15 +44,18 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-hecta-gray mb-4">
-                  Referência Mundial em Produção Sustentável
+                  {t('home:global_reference')}
                 </h2>
                 <p className="text-gray-700 mb-6">
-                  A Hecta Chia é líder global no fornecimento de chia de alta qualidade, 
-                  combinando práticas sustentáveis, rastreabilidade blockchain e 
-                  inclusão social através da nossa plataforma Hecta-pay-hub.
+                  {t('home:company_description_long')}
                 </p>
                 <ul className="space-y-3">
-                  {['60% da produção com certificação orgânica', 'Mais de 4.000 pessoas envolvidas na cadeia produtiva', 'Redução de 57% nas emissões de CO₂ por tonelada', 'Entrega pontual em mais de 98% dos embarques'].map((item, index) => <li key={index} className="flex items-start">
+                  {[
+                    t('home:key_point_1'), 
+                    t('home:key_point_2'), 
+                    t('home:key_point_3'), 
+                    t('home:key_point_4')
+                  ].map((item, index) => <li key={index} className="flex items-start">
                       <span className="text-hecta-green mr-2">✓</span>
                       <span>{item}</span>
                     </li>)}
@@ -77,18 +82,17 @@ const Index = () => {
         <section className="py-16 bg-hecta-green text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-6">
-              Conheça a Plataforma Hecta-pay-hub
+              {t('home:platform_title')}
             </h2>
             <p className="text-xl max-w-3xl mx-auto mb-8">
-              Pagamentos tokenizados, rastreabilidade blockchain e integração ERP 
-              para total transparência e eficiência em toda a cadeia produtiva.
+              {t('home:platform_description')}
             </p>
             <Button 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-hecta-green"
               onClick={() => window.open('https://www.hecta-pay-hub.com', '_blank')}
             >
-              Conheça o Hecta-Pay-Hub
+              {t('home:platform_button')}
             </Button>
           </div>
         </section>
@@ -102,8 +106,7 @@ const Index = () => {
                 <HectaLogo className="h-8" />
               </div>
               <p className="mb-4">
-                Referência global em produção, processamento e 
-                comercialização de chia de alta qualidade.
+                {t('common:footer_description')}
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="hover:text-hecta-lime">LinkedIn</a>
@@ -112,29 +115,29 @@ const Index = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">Sedes Globais</h3>
+              <h3 className="text-xl font-bold mb-4">{t('common:global_offices')}</h3>
               <ul className="space-y-2">
-                <li>Curitiba, Brasil (Matriz)</li>
-                <li>São Paulo, Brasil</li>
-                <li>Assunção, Paraguai</li>
-                <li>Qingdao, China</li>
-                <li>Nova York, EUA</li>
+                <li>{t('common:office_curitiba')}</li>
+                <li>{t('common:office_saopaulo')}</li>
+                <li>{t('common:office_asuncion')}</li>
+                <li>{t('common:office_qingdao')}</li>
+                <li>{t('common:office_newyork')}</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">Contato</h3>
+              <h3 className="text-xl font-bold mb-4">{t('common:contact')}</h3>
               <p className="mb-2">contato@hectachia.com</p>
               <p className="mb-4">+55 (41) 3000-0000</p>
               <Button 
                 className="bg-hecta-lime hover:bg-white hover:text-hecta-green"
                 onClick={navigateToContact}
               >
-                Fale Conosco
+                {t('common:contact_us')}
               </Button>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
-            <p>© {new Date().getFullYear()} Hecta Chia. Todos os direitos reservados.</p>
+            <p>{t('common:copyright', { year: new Date().getFullYear() })}</p>
           </div>
         </div>
       </footer>
