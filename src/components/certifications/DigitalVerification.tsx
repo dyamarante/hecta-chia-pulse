@@ -10,7 +10,7 @@ interface DigitalVerificationProps {
 }
 
 const DigitalVerification: React.FC<DigitalVerificationProps> = ({ onDemoClick }) => {
-  const { t, i18n } = useTranslation(['certifications']);
+  const { t } = useTranslation(['certifications']);
 
   return (
     <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -55,12 +55,7 @@ const DigitalVerification: React.FC<DigitalVerificationProps> = ({ onDemoClick }
             </div>
             <div className="flex justify-between items-center py-2 border-b">
               <span className="text-gray-600">{t('harvest')}</span>
-              <span className="font-medium">
-                {i18n.language === 'pt' ? t('may_2024') :
-                 i18n.language === 'en' ? t('may_2024') :
-                 i18n.language === 'zh' ? t('may_2024') :
-                 t('may_2024')}
-              </span>
+              <span className="font-medium">{t('may_2024')}</span>
             </div>
             <div className="flex justify-between items-center py-2 border-b">
               <span className="text-gray-600">{t('blockchain_hash')}</span>
