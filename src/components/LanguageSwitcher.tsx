@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { changeLanguage } from '@/i18n';
 
-// Lista de idiomas suportados
+// List of supported languages
 const languages = [
   { code: 'pt', name: 'Português', flag: '🇧🇷' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -26,7 +26,9 @@ const LanguageSwitcher = () => {
   const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
   
   const handleChangeLanguage = (code: string) => {
-    changeLanguage(code);
+    if (code !== currentLang) {
+      changeLanguage(code);
+    }
   };
 
   return (

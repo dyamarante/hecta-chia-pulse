@@ -9,34 +9,15 @@ interface TimelineEvent {
 }
 
 const ComplianceTimeline: React.FC = () => {
-  const { t, i18n } = useTranslation(['certifications']);
-
-  const getLocalizedEvent = (key: string): string => {
-    switch(key) {
-      case 'usda_organic':
-        return i18n.language === 'zh' ? 'USDA有机认证' : t('usda_organic');
-      case 'eu_organic_cor':
-        return i18n.language === 'zh' ? '欧盟有机认证 + COR' : 'EU Organic + COR';
-      case 'brcgs_upgrade':
-        return i18n.language === 'zh' ? 'BRCGS A → 2023年升级至AA+' : 'BRCGS A → upgrade AA+ in 2023';
-      case 'kosher_ou':
-        return i18n.language === 'zh' ? '犹太洁食OU' : 'Kosher OU';
-      case 'halal_smeta':
-        return i18n.language === 'zh' ? '清真GCC + SMETA 4P' : 'Halal GCC + SMETA 4P';
-      case 'non_gmo':
-        return i18n.language === 'zh' ? '非转基因项目验证' : 'Non-GMO Project Verified';
-      default:
-        return key;
-    }
-  };
+  const { t } = useTranslation(['certifications']);
 
   const timelineEvents: TimelineEvent[] = [
-    { year: 2018, event: getLocalizedEvent('usda_organic') },
-    { year: 2019, event: getLocalizedEvent('eu_organic_cor') },
-    { year: 2020, event: getLocalizedEvent('brcgs_upgrade') },
-    { year: 2021, event: getLocalizedEvent('kosher_ou') },
-    { year: 2022, event: getLocalizedEvent('halal_smeta') },
-    { year: 2023, event: getLocalizedEvent('non_gmo') },
+    { year: 2018, event: t('usda_organic') },
+    { year: 2019, event: t('eu_organic_cor', 'EU Organic + COR') },
+    { year: 2020, event: t('brcgs_upgrade', 'BRCGS A → upgrade AA+ in 2023') },
+    { year: 2021, event: t('kosher_ou', 'Kosher OU') },
+    { year: 2022, event: t('halal_smeta', 'Halal GCC + SMETA 4P') },
+    { year: 2023, event: t('non_gmo', 'Non-GMO Project Verified') }
   ];
 
   return (

@@ -5,53 +5,59 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
 i18n
-  // Carregamento de traduções usando http
+  // Loading translations using http
   .use(Backend)
-  // Detecção automática do idioma
+  // Automatic language detection
   .use(LanguageDetector)
-  // Integração com React
+  // React integration
   .use(initReactI18next)
-  // Inicialização
+  // Initialization
   .init({
-    // Idioma padrão
+    // Default language
     fallbackLng: 'pt',
-    // Idiomas suportados
+    // Supported languages
     supportedLngs: ['pt', 'en', 'zh', 'ar'],
-    // Modo de debug (desativado em produção)
+    // Debug mode (disabled in production)
     debug: process.env.NODE_ENV === 'development',
-    // Configurações de interpolação
+    // Interpolation settings
     interpolation: {
-      escapeValue: false, // Não é necessário para React
+      escapeValue: false, // Not needed for React
     },
-    // Configuração de detecção de idioma
+    // Language detection configuration
     detection: {
       order: ['localStorage', 'navigator'],
       lookupLocalStorage: 'hectachia-language',
       caches: ['localStorage'],
     },
-    // Configuração do backend para carregar as traduções
+    // Backend configuration to load translations
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
-    // Namespaces de tradução
+    // Translation namespaces
     ns: ['common', 'contact', 'certifications', 'home', 'notfound'],
     defaultNS: 'common',
+    react: {
+      useSuspense: false // This helps avoid issues during language switching
+    }
   });
 
-// Exportar a função para mudar o idioma e direção do documento
+// Export the function to change language and document direction
 export const changeLanguage = (lng: string) => {
-  i18n.changeLanguage(lng);
-  
-  // Definir direção do documento para RTL se for árabe
-  if (lng === 'ar') {
-    document.documentElement.dir = 'rtl';
-    document.documentElement.lang = lng;
-    document.body.classList.add('rtl');
-  } else {
-    document.documentElement.dir = 'ltr';
-    document.documentElement.lang = lng;
-    document.body.classList.remove('rtl');
-  }
+  i18n.changeLanguage(lng).then(() => {
+    // Change document direction to RTL if Arabic
+    if (lng === 'ar') {
+      document.documentElement.dir = 'rtl';
+      document.documentElement.lang = lng;
+      document.body.classList.add('rtl');
+    } else {
+      document.documentElement.dir = 'ltr';
+      document.documentElement.lang = lng;
+      document.body.classList.remove('rtl');
+    }
+    
+    // Force reload the current page to ensure all components use the new language
+    window.location.reload();
+  });
 };
 
 export default i18n;
