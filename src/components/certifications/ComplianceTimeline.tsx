@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface TimelineEvent {
-  year: number;
+  year: string;
   event: string;
 }
 
@@ -12,12 +12,12 @@ const ComplianceTimeline: React.FC = () => {
   const { t } = useTranslation(['certifications']);
 
   const timelineEvents: TimelineEvent[] = [
-    { year: 2018, event: t('usda_organic') },
-    { year: 2019, event: t('eu_organic_cor', 'EU Organic + COR') },
-    { year: 2020, event: t('brcgs_upgrade', 'BRCGS A → upgrade AA+ in 2023') },
-    { year: 2021, event: t('kosher_ou', 'Kosher OU') },
-    { year: 2022, event: t('halal_smeta', 'Halal GCC + SMETA 4P') },
-    { year: 2023, event: t('non_gmo', 'Non-GMO Project Verified') }
+    { year: t('2018'), event: t('usda_organic') },
+    { year: t('2019'), event: t('eu_organic_cor') },
+    { year: t('2020'), event: t('brcgs_upgrade') },
+    { year: t('2021'), event: t('kosher_ou') },
+    { year: t('2022'), event: t('halal_smeta') },
+    { year: t('2023'), event: t('non_gmo') }
   ];
 
   return (

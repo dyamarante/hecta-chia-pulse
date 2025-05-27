@@ -32,7 +32,7 @@
   "canadian_organic_regime": "加拿大有机制度 — 加拿大",
   "eu_regulation": "欧盟法规 (EU) 2018/848 — 欧盟",
   "nop_regulation": "NOP法规 (7 CFR Part 205) — 美国",
-  "jas_organic": "JAS有机认证 (MAFF)",
+  "jas_organic": "JAS有机认证",
   "japan_compulsory": "在日本标注"有机"的强制性要求",
   "fda_registration": "食品设施注册与酸化食品",
   "gfsi_global": "GFSI全球认证（无预警审核）",
@@ -76,7 +76,7 @@
   "nongmo_guarantee": "第三方保证不含转基因成分",
   "nongmo_acceptance": "在"天然/全食品"商店中高度认可",
   "nongmo_validity": "ID #NGPV-021-CHI-2024 (年度更新)",
-  "gluten_title": "非转基因 / 无麸质（内部）",
+  "gluten_title": "无麸质（内部）",
   "controlled_batches": "受控批次",
   "elisa_analyses": "ELISA分析 <10 ppm（麸质）",
   "blockchain_reports": "Hecta区块链上的报告",
@@ -91,5 +91,11 @@
   "markets.usa": "美国",
   "markets.eu": "欧盟",
   "markets.asia": "亚洲",
-  "markets.middle_east": "中东"
+  "markets.middle_east": "中东",
+  "2018": "2018年",
+  "2019": "2019年", 
+  "2020": "2020年",
+  "2021": "2021年",
+  "2022": "2022年",
+  "2023": "2023年"
 }
