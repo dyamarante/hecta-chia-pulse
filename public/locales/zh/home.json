@@ -3,7 +3,7 @@
   "hero_title_1": "全球品质奇亚籽",
   "hero_title_2": "参考标准",
   "hero_description": "我们通过透明、技术和对可持续发展的承诺将生产商与国际市场连接起来。",
-  "hero_image_alt": "港口装载奇亚籽",
+  "hero_image_alt": "优质奇亚籽产品",
   "hero_image_caption": "遍布全球78多个港口",
   "market_analysis_button": "查看市场概览",
   "contact_button": "联系我们",
@@ -15,5 +15,11 @@
   "key_point_4": "98%以上的装运按时交付",
   "platform_title": "了解Hecta-pay-hub平台",
   "platform_description": "代币化支付、区块链可追溯性和ERP集成，为整个生产链提供全面透明和效率。",
-  "platform_button": "探索Hecta-Pay-Hub"
+  "platform_button": "探索Hecta-Pay-Hub",
+  "product_glass_jars": "玻璃罐装优质奇亚籽",
+  "product_glass_jars_desc": "精选有机奇亚籽，可持续包装",
+  "product_sachets": "独立小包装",
+  "product_sachets_desc": "方便日常消费的分量包装",
+  "product_chia_oil": "冷榨奇亚籽油",
+  "product_chia_oil_desc": "富含欧米茄-3和天然抗氧化剂"
 }

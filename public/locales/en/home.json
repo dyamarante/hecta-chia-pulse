@@ -3,7 +3,7 @@
   "hero_title_1": "Global Reference in",
   "hero_title_2": "Quality Chia",
   "hero_description": "We connect producers to international markets with transparency, technology and commitment to sustainability.",
-  "hero_image_alt": "Chia loading at port",
+  "hero_image_alt": "Premium chia products",
   "hero_image_caption": "More than 78 ports worldwide",
   "market_analysis_button": "View Market Overview",
   "contact_button": "Contact Us",
@@ -15,5 +15,11 @@
   "key_point_4": "Punctual delivery in more than 98% of shipments",
   "platform_title": "Meet the Hecta-pay-hub Platform",
   "platform_description": "Tokenized payments, blockchain traceability and ERP integration for total transparency and efficiency throughout the production chain.",
-  "platform_button": "Discover Hecta-Pay-Hub"
+  "platform_button": "Discover Hecta-Pay-Hub",
+  "product_glass_jars": "Premium Chia in Glass Jars",
+  "product_glass_jars_desc": "Selected organic chia in sustainable packaging",
+  "product_sachets": "Individual Sachets",
+  "product_sachets_desc": "Convenient portions for daily consumption",
+  "product_chia_oil": "Cold-Pressed Chia Oil",
+  "product_chia_oil_desc": "Rich in omega-3 and natural antioxidants"
 }

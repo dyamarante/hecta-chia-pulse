@@ -3,10 +3,12 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { FileText } from 'lucide-react';
 import { useCertificationContext } from '@/contexts/CertificationContext';
+import { useTranslation } from 'react-i18next';
 import CertificationCard from './CertificationCard';
 import DigitalVerification from './DigitalVerification';
 import ComplianceTimeline from './ComplianceTimeline';
 import FaqSection from './FaqSection';
+import ProductShowcase from '../ProductShowcase';
 
 interface CertificationsContentProps {
   onRedirectToContact: () => void;
@@ -14,6 +16,7 @@ interface CertificationsContentProps {
 
 const CertificationsContent: React.FC<CertificationsContentProps> = ({ onRedirectToContact }) => {
   const { translations, isLoading } = useCertificationContext();
+  const { t } = useTranslation(['home']);
 
   if (isLoading) {
     return (
@@ -46,6 +49,19 @@ const CertificationsContent: React.FC<CertificationsContentProps> = ({ onRedirec
           </Button>
         </div>
       </section>
+
+      {/* Products Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-hecta-gray mb-6 text-center">
+            {t('home:global_reference')}
+          </h2>
+          <p className="text-lg text-gray-700 mb-10 text-center max-w-3xl mx-auto">
+            {t('home:company_description_long')}
+          </p>
+          <ProductShowcase />
+        </div>
+      </section>
       
       {/* Certificates Grid */}
       <section className="py-16 bg-gray-50">
@@ -73,12 +89,10 @@ const CertificationsContent: React.FC<CertificationsContentProps> = ({ onRedirec
         </div>
       </section>
       
-      {/* Timeline */}
       <section className="py-16 bg-gray-50">
         <ComplianceTimeline />
       </section>
       
-      {/* FAQ Section */}
       <section className="py-16">
         <FaqSection />
       </section>

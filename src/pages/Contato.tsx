@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,10 +10,11 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Header from '@/components/Header';
 import HectaLogo from '@/components/HectaLogo';
+import ProductShowcase from '@/components/ProductShowcase';
 import { useTranslation } from 'react-i18next';
 
 const Contato = () => {
-  const { t } = useTranslation(['common', 'contact']);
+  const { t } = useTranslation(['common', 'contact', 'home']);
   const { toast } = useToast();
 
   // Schema com mensagens traduzíveis
@@ -53,7 +53,8 @@ const Contato = () => {
     form.reset();
   }
   
-  return <div className="min-h-screen bg-white">
+  return (
+    <div className="min-h-screen bg-white">
       <Header />
       
       <main className="pt-36 pb-16">
@@ -61,6 +62,17 @@ const Contato = () => {
           <div className="max-w-5xl mx-auto">
             <h1 className="text-4xl font-bold text-hecta-gray mb-2">{t('contact:contact_us')}</h1>
             <p className="text-xl text-gray-600 mb-12">{t('contact:contact_description')}</p>
+            
+            {/* Products Section */}
+            <section className="mb-16 bg-gray-50 rounded-lg p-8">
+              <h2 className="text-3xl font-bold text-hecta-gray mb-6 text-center">
+                {t('home:global_reference')}
+              </h2>
+              <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                {t('home:company_description_long')}
+              </p>
+              <ProductShowcase />
+            </section>
             
             <div className="grid md:grid-cols-3 gap-10">
               <div className="col-span-2">
@@ -209,6 +221,8 @@ const Contato = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Contato;
