@@ -12,7 +12,12 @@ export interface Certification {
 }
 
 export const useCertifications = () => {
-  const { t } = useTranslation(['certifications']);
+  const { t, ready } = useTranslation(['certifications'], { useSuspense: false });
+  
+  // Return empty array if translations are not ready
+  if (!ready) {
+    return { certifications: [], isLoading: true };
+  }
   
   const certifications: Certification[] = [
     {
@@ -136,5 +141,5 @@ export const useCertifications = () => {
     }
   ];
 
-  return { certifications };
+  return { certifications, isLoading: false };
 };
