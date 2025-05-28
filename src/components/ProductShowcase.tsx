@@ -19,19 +19,19 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ className = "" }) => 
   const products = [
     {
       id: 1,
-      image: "/lovable-uploads/33f03b68-92df-4783-ab31-3af02e4cbcea.png",
+      image: "/lovable-uploads/f5b83a1e-17e8-44ad-9488-ec77c92f3fde.png",
       name: t('home:product_glass_jars'),
       description: t('home:product_glass_jars_desc')
     },
     {
       id: 2,
-      image: "/lovable-uploads/32446d82-41d5-4daf-9b49-e8c2921a8366.png",
+      image: "/lovable-uploads/0bb62fb2-d29a-4a46-922c-7f83c8aae5dc.png",
       name: t('home:product_sachets'),
       description: t('home:product_sachets_desc')
     },
     {
       id: 3,
-      image: "/lovable-uploads/26a49575-75db-47d5-b2e6-2a4bb8261f2d.png",
+      image: "/lovable-uploads/1b75fca4-2547-4477-9c8e-54aa239b1bc6.png",
       name: t('home:product_chia_oil'),
       description: t('home:product_chia_oil_desc')
     }
